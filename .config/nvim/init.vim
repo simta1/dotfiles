@@ -15,6 +15,7 @@ set mouse=a
 set background=dark
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'jiangmiao/auto-pairs' " 괄호 열면 자동으로 닫는 괄호 생성
 Plug 'tpope/vim-surround'
 Plug 'phaazon/hop.nvim' " easymotion 대용
 Plug 'nvim-tree/nvim-tree.lua'
