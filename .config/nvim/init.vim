@@ -24,6 +24,8 @@ Plug 'psliwka/vim-smoothie'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlighting용 플러그인 :TSInstallInfo로 설치된 언어 확인 :TSInstall lua처럼 언어 설치 가능
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/todo-comments.nvim' " nvim-lua/plenary.nvim 필요
 Plug 'wakatime/vim-wakatime'
 " Plug 'ellisonleao/glow.nvim', { 'do': ':Glow' } " 마크다운 미리보기용인데 잘 안됨(새로운 환경에서 사용하려는 경우 GLOW 따로 설치해야 됨)
 
@@ -102,6 +104,15 @@ EOF
 
 nmap <Leader>w <cmd>lua require'hop'.hint_words()<cr>
 xmap <Leader>w <cmd>lua require'hop'.hint_words()<cr>
+
+" todo-comments
+lua << EOF
+require("todo-comments").setup {
+  highlight = {
+    pattern = [[.*<(KEYWORDS)\s*:?\s*]], -- KEYWORDS 뒤에 ':' 없어도 되게 함
+  },
+}
+EOF
 
 " ----------------- ps 관련 (cin 입력받는 코드 자동 생성) -----------------
 function! GenerateCinCodeRange(startLine, endLine)
