@@ -12,7 +12,7 @@ syntax on
 set mouse=a
 " set clipboard=unnamedplus
 " set showmatch
-set background=dark
+set termguicolors " tmux에서도 색깔 똑같이 나오게 함
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'jiangmiao/auto-pairs' " 괄호 열면 자동으로 닫는 괄호 생성
@@ -47,14 +47,20 @@ Plug 'Eandrju/cellular-automaton.nvim' " :CellularAutomaton game_of_life 또는 
 
 call plug#end()
 
-" syntax highlighting
+" syntax highlighting --- 휴지통
 " colorscheme tokyonight " 푸른색 계열
 " colorscheme gruvbox " 붉은색 계열(내취향아님)
 " colorscheme dracula " 좋음
 " colorscheme catppuccin " 좋음
-colorscheme onedark " 좋음
 " colorscheme solarized " background=light(내취향아님)
-" colorscheme PaperColor " background=light
+
+" syntax highlighting --- 좋은거 1 근데 다크모드임
+" colorscheme onedark
+" set background=dark
+
+" syntax highlighting --- 좋은거 2 라이트모드임
+colorscheme PaperColor
+set background=light
 
 lua << EOF
 require'nvim-treesitter.configs'.setup {

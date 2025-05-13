@@ -1,0 +1,7 @@
+# bash에서 Ctrl+Backspace로 단어 단위 삭제
+"\C-h": backward-kill-word
+# .inputrc 수정 후에는 bind -f ~/.inputrc 해야 됨
+
+
+# zsh이면 ~/.zshrc에 아래 줄 추가하면 됨
+# bindkey "^H" backward-kill-word
