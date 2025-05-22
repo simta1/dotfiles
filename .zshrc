@@ -137,6 +137,7 @@ alias kcb='kubectl run busybox --image=busybox --restart=Never -- sleep 1d'
 
 # custom alias
 alias sshconfig='batcat ~/.ssh/config'
+alias vi='nvim'
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 

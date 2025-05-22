@@ -27,6 +27,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " syntax highlightin
 Plug 'nvim-lua/plenary.nvim'
 Plug 'folke/todo-comments.nvim' " nvim-lua/plenary.nvim 필요
 Plug 'wakatime/vim-wakatime'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 " Plug 'ellisonleao/glow.nvim', { 'do': ':Glow' } " 마크다운 미리보기용인데 잘 안됨(새로운 환경에서 사용하려는 경우 GLOW 따로 설치해야 됨)
 
 " syntax highlighting
@@ -73,10 +74,13 @@ require'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
   indent = {
-    enable = true
+    enable = false
   }
 }
 EOF
+
+autocmd User visual_multi_start :TSDisable highlight
+autocmd User visual_multi_exit :TSEnable highlight
 
 " comment.nvim
 lua << EOF
