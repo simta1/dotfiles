@@ -159,3 +159,5 @@ nnoremap <leader>in :call GenerateCinCodeRange(line('.'), line('.'))<CR>
 
 nnoremap <silent> <leader>/ :nohlsearch<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
+
+nnoremap <Leader>yf V/{<CR>%"+y
