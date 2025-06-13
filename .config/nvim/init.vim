@@ -10,7 +10,7 @@ set shiftwidth=4
 set expandtab
 syntax on
 set mouse=a
-" set clipboard=unnamedplus
+set clipboard=unnamedplus
 " set showmatch
 set termguicolors " tmux에서도 색깔 똑같이 나오게 함
 
@@ -161,3 +161,5 @@ nnoremap <silent> <leader>/ :nohlsearch<CR>
 nnoremap <leader>r :source $MYVIMRC<CR>
 
 nnoremap <Leader>yf V/{<CR>%"+y
+
+nnoremap K k
