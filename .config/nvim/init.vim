@@ -10,7 +10,7 @@ set shiftwidth=4
 set expandtab
 syntax on
 set mouse=a
-set clipboard=unnamedplus
+" set clipboard=unnamedplus " 이거 하면 기본적으로 뭘하든 +레지스터로 들어감 최악임
 " set showmatch
 set termguicolors " tmux에서도 색깔 똑같이 나오게 함
 
