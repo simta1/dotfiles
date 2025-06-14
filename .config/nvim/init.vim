@@ -8,6 +8,7 @@ set relativenumber
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set termguicolors " tmux에서도 색깔 적용됨
 syntax on
 set mouse=a
 " set clipboard=unnamedplus " 이거 하면 기본적으로 뭘하든 +레지스터로 들어감 최악임
