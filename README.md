@@ -44,3 +44,9 @@ chmod +x zsh_install.sh
 ./zsh_install.sh
 source ~/.zshrc
 ```
+
+6. batcat 설치
+```
+sudo pacman -S bat
+```
+~/.ssh/config

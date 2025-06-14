@@ -136,7 +136,7 @@ alias kcns='kubectl create deploy netshoot --image nicolaka/netshoot -- sleep in
 alias kcb='kubectl run busybox --image=busybox --restart=Never -- sleep 1d'
 
 # custom alias
-alias sshconfig='batcat ~/.ssh/config'
+alias sshconfig='bat ~/.ssh/config'
 alias vi='nvim'
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
