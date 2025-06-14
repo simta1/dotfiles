@@ -1,24 +1,35 @@
 # dotfiles
 
 ### 설치방법
-1. zsh 설치
+1. zsh, oh-my-zsh 설치
+```
+sudo pacman -S zsh
+chsh -s /bin/zsh
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
 2. powerlevel10k 설치
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
   ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
+
 3. zsh plugin 설치
 ```
 # autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-# syntax-highlighting (※ 얘는 반드시 plugins 리스트에서 마지막에 와야 함)
+# syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
 4. nvim 설치
+```
+sudo pacman -S neovim
+```
 
-5.
+5. dotfiles 적용
 ```bash
 git clone https://github.com/simta1/dotfiles.git ~/dotfiles
 cd ~/dotfiles
