@@ -41,11 +41,14 @@ source ~/.zshrc
 
 ## nvim (lazyvim)
 ```bash
+# lazyvim
 sudo pacman -S neovim
 git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
 stow -v nvim
 
+# neovide
 yay -S neovide
+stow -v neovide
 ```
 
 ## Font
