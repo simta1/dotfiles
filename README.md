@@ -53,6 +53,11 @@ yay -S neovide
 sudo pacman -S ttf-iosevka-nerd
 ```
 
+## Scripts
+```bash
+cp scripts/* ~/.local/bin/
+```
+
 ## Applications
 ```bash
 cd ~/dotfiles
