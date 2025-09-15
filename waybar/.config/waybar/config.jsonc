@@ -120,7 +120,7 @@
   // },
     "battery": {
         "bat": "BAT0",
-        "interval": 30,
+        "interval": 1,
         "format": "{icon}  {capacity}%", 
         "format-icons": ["", "", "", "", ""],
         "format-charging": " {capacity}%",
