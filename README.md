@@ -101,7 +101,7 @@ stow -v ncmpcpp
 
 # rofi
 stow -v rofi
-# 이후 https://github.com/newmanls/rofi-themes-collection?utm_source=chatgpt.com 설정
+# 이후 https://github.com/newmanls/rofi-themes-collection 설정
 
 # ssh
 mkdir -p ~/.ssh
@@ -148,7 +148,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-th
 
 ## rofi theme
 ```bash
-# https://github.com/newmanls/rofi-themes-collection?utm_source=chatgpt.com
+# https://github.com/newmanls/rofi-themes-collection
 git clone https://github.com/lr-tech/rofi-themes-collection.git
 cd rofi-themes-collection
 mkdir -p ~/.local/share/rofi/themes/

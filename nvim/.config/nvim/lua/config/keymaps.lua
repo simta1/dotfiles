@@ -20,6 +20,8 @@ vim.keymap.set("i", "<C-Del>", "<C-o>dw", { noremap = true })
 
 vim.keymap.set("n", "<C-Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
+vim.keymap.set("i", "<C-Tab>", "<Esc><cmd>bnext<CR>", { desc = "Next buffer" })
+vim.keymap.set("i", "<C-S-Tab>", "<Esc><cmd>bprevious<CR>", { desc = "Previous buffer" })
 
 vim.keymap.del("n", "<leader><leader>")
 
