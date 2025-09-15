@@ -77,6 +77,9 @@ stow -v Code
 # environment.d
 stow -v environment.d
 
+# fastfetch
+stow -v fastfetch
+
 # ghostty
 stow -v ghostty
 
