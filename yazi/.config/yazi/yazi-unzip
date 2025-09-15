@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+f="${1:-}"
+case "$f" in
+    *.[zZ][iI][pP]) : ;;
+    *) echo "Not a .zip: $f" >&2; exit 1 ;;
+esac
+dir="${f%.[zZ][iI][pP]}"
+mkdir -p -- "$dir"
+if command -v unzip >/dev/null 2>&1; then
+    unzip -n "$f" -d "$dir"
+elif command -v bsdtar >/dev/null 2>&1; then
+    bsdtar -xf "$f" -C "$dir"
+else
+    echo "Need unzip or bsdtar" >&2; exit 127
+fi
+echo "Extracted into: $dir"

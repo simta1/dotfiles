@@ -1,0 +1,149 @@
+# dotfiles
+
+## Setup
+```bash
+# stow 사용할거라 홈 디렉토리에 둬야 함
+git clone https://github.com/simta1/dotfiles.git ~/dotfiles
+
+mkdir -p ~/.config 
+```
+
+## zsh
+```bash
+# bash -> zsh
+sudo pacman -S zsh
+chsh -s $(which zsh)
+
+# oh-my-zsh 설치
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# powerlevel10k 설치
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+  ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+# p10k configure 이후 ~/.p10k.zsh에서 vi_mode 주석 삭제
+
+# zsh plugin(zsh-autosuggestions)
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# zsh plugin(zsh-vi-mode)
+git clone https://github.com/jeffreytse/zsh-vi-mode \
+  $ZSH_CUSTOM/plugins/zsh-vi-mode
+
+# zsh plugin(zsh-syntax-highlighting)
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# zshrc
+sudo pacman -S zoxide bat lazygit fzf bluez sshfs eza trash-cli
+yay -S thefuck yt-dlp yazi dragon-drop
+stow -v zsh
+source ~/.zshrc
+```
+
+## nvim (lazyvim)
+```bash
+sudo pacman -S neovim
+git clone https://github.com/folke/lazy.nvim.git ~/.local/share/nvim/lazy/lazy.nvim
+stow -v nvim
+
+yay -S neovide
+```
+
+## Font
+```bash
+sudo pacman -S ttf-iosevka-nerd
+```
+
+## Applications
+```bash
+cd ~/dotfiles
+mkdir -p ~/.config
+
+# alacritty
+stow -v alacritty
+
+# bongocat (wayland)
+stow -v bongocat
+
+# btop
+stow -v btop
+
+# calcure
+stow -v calcure
+
+# vscode
+yay -S visual-studio-code-bin
+stow -v Code
+
+# environment.d
+stow -v environment.d
+
+# ghostty
+stow -v ghostty
+
+# git
+sudo pacman -S git-delta
+stow -v git
+
+# mako
+stow -v mako
+
+# mpd, ncmpcpp
+stow -v mpd
+stow -v ncmpcpp
+
+# rofi
+stow -v rofi
+# 이후 https://github.com/newmanls/rofi-themes-collection?utm_source=chatgpt.com 설정
+
+# ssh
+mkdir -p ~/.ssh
+stow -v ssh
+
+# sway
+sudo pacman -S grim slurp
+stow -v sway
+
+# wakatime
+stow -v wakatime
+
+# wallpapers
+mkdir -p ~/Pictures
+stow -v wallpapers
+
+# waybar
+stow -v waybar
+
+# wezterm
+stow -v wezterm
+
+# xinitrc, Xmodmap, xprofile, Xresources
+stow -v xinitrc
+stow -v xmodmap
+stow -v xprofile
+stow -v xresources
+
+# yazi
+sudo pacman -S zip unzip
+yay -S ueberzugpp fd chafa zoxide p7zip resvg jq trash-cli
+stow -v yazi
+# yazi --debug 로 dependencies 확인
+
+# zathura
+stow -v zathura
+```
+
+## sddm theme
+```bash
+# https://github.com/Keyitdev/sddm-astronaut-theme
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
+```
+
+## rofi theme
+```bash
+# https://github.com/newmanls/rofi-themes-collection?utm_source=chatgpt.com
+git clone https://github.com/lr-tech/rofi-themes-collection.git
+cd rofi-themes-collection
+mkdir -p ~/.local/share/rofi/themes/
+```
+`rofi -show run`에서 `rofi-theme-selector` 실행   
+`enter`로 테마 preview, `Alt+a`로 테마 적용   

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export SDL_IM_MODULE=fcitx
+export XCURSOR_SIZE=32
+export XCURSOR_THEME=Breeze
+
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+
+xrdb -merge ~/.Xresources
+fcitx5 &
+betterlockscreen -u ~/Pictures/wallpapers/bg_lock.jpg &

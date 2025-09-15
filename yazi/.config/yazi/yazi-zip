@@ -1,0 +1,96 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+usage() {
+    cat <<'EOF' >&2
+Usage: yazi-zip-top [-o OUT.zip] [-f] -- <paths...>
+  -o OUT.zip   Output archive name (.zip appended if missing)
+  -f           Overwrite if OUT.zip already exists
+Examples:
+  yazi-zip-top -- /a/b/c /a/x/y /a/x/dir
+  yazi-zip-top -o pack.zip -- "$@"
+EOF
+    exit 2
+}
+
+out=""
+force=0
+
+while getopts ":o:fh" opt; do
+    case "$opt" in
+        o) out="$OPTARG" ;;
+        f) force=1 ;;
+        h) usage ;;
+        \?) echo "Unknown option: -$OPTARG" >&2; usage ;;
+        :)  echo "Option -$OPTARG requires an argument" >&2; usage ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+if [ "$#" -lt 1 ]; then
+    echo "No selection given." >&2
+    usage
+fi
+
+if [ -z "$out" ]; then
+    printf "Archive name (.zip): "
+    IFS= read -r out || exit 1
+fi
+[ -z "$out" ] && { echo "Cancelled." >&2; exit 1; }
+
+case "$out" in
+    *.zip|*.ZIP) : ;;
+    *) out="${out}.zip" ;;
+esac
+
+case "$out" in
+    /*) outpath="$out" ;;
+    *)  outpath="$PWD/$out" ;;
+esac
+
+if [ -e "$outpath" ] && [ "$force" -ne 1 ]; then
+    echo "Exists: $outpath (use -f to overwrite)" >&2
+    exit 1
+fi
+
+# top-level 이름 충돌 검사 (basename이 동일하면 중단)
+tmp_dups="$(mktemp)"
+trap 'rm -f "$tmp_dups"' EXIT
+for p in "$@"; do
+    q=${p%/}
+    b=$(basename -- "$q")
+    printf "%s\0" "$b"
+done | sort -z | uniq -z -d > "$tmp_dups"
+if [ -s "$tmp_dups" ]; then
+    echo "Duplicate top-level names (would collide):" >&2
+    tr '\0' '\n' < "$tmp_dups" >&2
+    exit 1
+fi
+
+if command -v zip >/dev/null 2>&1; then
+    i=0
+    for p in "$@"; do
+        q=${p%/}
+        parent=$(dirname -- "$q")
+        base=$(basename -- "$q")
+        if [ "$i" -eq 0 ] || [ ! -f "$outpath" ]; then
+            ( cd "$parent" && zip -r -q "$outpath" -- "$base" )
+        else
+            ( cd "$parent" && zip -r -q -g "$outpath" -- "$base" )
+        fi
+        i=$(( i + 1 ))
+    done
+elif command -v bsdtar >/dev/null 2>&1; then
+    # bsdtar: 다중 -C parent base 페어로 바로 만든다 (복사/임시 디렉터리 불필요)
+    args=()
+    for p in "$@"; do
+        q=${p%/}
+        args+=( -C "$(dirname -- "$q")" "$(basename -- "$q")" )
+    done
+    bsdtar -a -cf "$outpath" "${args[@]}"
+else
+    echo "Need 'zip' or 'bsdtar' installed." >&2
+    exit 127
+fi
+
+echo "Created: $outpath"

@@ -1,0 +1,64 @@
+# Layout
+anchor=top-right
+width=440
+height=500
+margin=12,20
+padding=14
+max-visible=5
+default-timeout=6000
+ignore-timeout=0
+sort=-time
+text-alignment=left
+markup=1
+
+font=JetBrains Mono Medium 11, Noto Sans CJK KR 11
+
+# Dracula palette
+background-color=#282A36E6
+text-color=#F8F8F2FF
+border-size=2
+border-radius=16
+border-color=#8BE9FDFF
+
+# Icons
+icons=1
+max-icon-size=80
+icon-location=left
+icon-border-radius=10
+
+# Progress (다운로드 등 표시가 오는 앱 대비)
+progress-color=#50FA7BFF
+
+# Grouping / history
+group-by=app-name,summary
+max-history=20
+
+# Format: 굵은 제목 + 본문, 긴 본문은 줄바꿈
+format=<b>%s</b>\n%b
+
+[urgency=low]
+border-color=#8BE9FDFF
+default-timeout=4000
+
+[urgency=normal]
+border-color=#8BE9FDFF
+default-timeout=6000
+
+[urgency=high]
+border-color=#8BE9FDFF
+background-color=#3A2B32F0
+default-timeout=8000
+
+# 분홍색 계열
+# [urgency=low]
+# border-color=#FF79C6FF
+# default-timeout=4000
+# 
+# [urgency=normal]
+# border-color=#FF79C6FF
+# default-timeout=6000
+# 
+# [urgency=high]
+# border-color=#FF79C6FF
+# background-color=#3A2B32F0
+# default-timeout=8000

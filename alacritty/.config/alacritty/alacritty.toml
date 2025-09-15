@@ -1,0 +1,18 @@
+[[keyboard.bindings]]
+action = "Paste"
+key = "Insert"
+mods = "Shift"
+
+# Control + / -> ⎘ (Unicode U+2398) # nvim으로 ctrl+/가 전달이 안되서 우회용
+[[keyboard.bindings]]
+key = "/"
+mods = "Control"
+chars = "\u2398"
+
+[font]
+size = 6.0
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/ayu_light.toml"
+]

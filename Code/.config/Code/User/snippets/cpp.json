@@ -1,0 +1,271 @@
+{
+	"ps default code": {
+		"prefix": "SNIP ps_default",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"",
+			"int main() {",
+			"\tcin.tie(0) -> sync_with_stdio(0);",
+			"\t",
+			"\t$0",
+			"\t",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "ps default code"
+	},
+
+	"cp default code": {
+		"prefix": "SNIP cp_default",
+		"body": [
+			"#include <bits/stdc++.h>",
+			"using namespace std;",
+			"using ld = double;",
+			"using ll = long long;",
+			"using hh = __int128;",
+			"using ull = unsigned long long;",
+			"using pll = pair<ll, ll>;",
+			"using pii = pair<int, int>;",
+			"using tii = tuple<int, int, int>;",
+			"using qii = tuple<int, int, int, int>;",
+			"const vector<pair<int, int> > dpos = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}}; // [i][j] 격자 기준 상좌하우",
+			"// const vector<pair<int, int> > dpos = {{0, 1}, {-1, 0}, {0, -1}, {1, 0}}; // xy 좌표 기준 상좌하우",
+			"const string dirToChar = \"NWSE\";",
+			"const string keyToChar = \"WASD\";",
+			"",
+			"int main() {",
+			"\tcin.tie(0) -> sync_with_stdio(0);",
+			"\t",
+			"\t$0",
+			"\t",
+			"\treturn 0;",
+			"}"
+		],
+		"description": "ps default code"
+	},
+
+	"GCC optimize": {
+		"prefix": "#pragma GCC",
+		"body": [
+			"#pragma GCC optimize(\"O3\")",
+			"#pragma GCC optimize(\"Ofast\")",
+			"#pragma GCC optimize(\"unroll-loops\")",
+			""
+		],
+		"description": "GCC optimize"
+	},
+
+	"include ext/rope": {
+		"prefix": "#include <ext/rope>",
+		"body": [
+			"#include <ext/rope>",
+			"using namespace __gnu_cxx;",
+			"",
+			""
+		],
+		"description": "include ext/rope"
+	},
+
+	"include ext/pb_ds": {
+		"prefix": "#include <ext/pb_ds>",
+		"body": [
+			"#include <ext/pb_ds/assoc_container.hpp>",
+			"#include <ext/pb_ds/tree_policy.hpp>",
+			"using namespace __gnu_pbds;",
+			"template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+			"template <typename T> using ordered_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+			"",
+			""
+		],
+		"description": "include ext/pb_ds"
+	},
+
+	"codeforces testcase for loop": {
+		"prefix": "SNIP ps_TC",
+		"body": [
+			"int TC;",
+			"for (cin >> TC; TC--;) {",
+			"\t$0",
+			"}"
+		],
+		"description": "codeforces testcase for loop"
+	},
+
+	"cin n": {
+		"prefix": "SNIP cin_n",
+		"body": [
+			"int n;",
+			"cin >> n;",
+			"",
+			""
+		],
+		"description": "int n"
+	},
+
+	"cin nm": {
+		"prefix": "SNIP cin_nm",
+		"body": [
+			"int n, m;",
+			"cin >> n >> m;",
+			"",
+			""
+		],
+		"description": "int n, m"
+	},
+
+	"cin nmk": {
+		"prefix": "SNIP cin_nmk",
+		"body": [
+			"int n, m, k;",
+			"cin >> n >> m >> k;",
+			"",
+			""
+		],
+		"description": "int n, m, k"
+	},
+
+	"cin nk": {
+		"prefix": "SNIP cin_nk",
+		"body": [
+			"int n, k;",
+			"cin >> n >> k;",
+			"",
+			""
+		],
+		"description": "int n, k"
+	},
+
+	"cin v": {
+		"prefix": "SNIP cin_v",
+		"body": [
+			"vector<int> v(n);",
+			"for (auto &e : v) cin >> e;",
+			"",
+			""
+		],
+		"description": "vector<int> v(n)"
+	},
+
+	"cin vec2D": {
+		"prefix": "SNIP cin_v2",
+		"body": [
+			"vector ${1:v}(${2:n}, vector<int>(${3:m}));",
+			"for (auto &r : $1) for (auto &e : r) cin >> e;",
+			"",
+			""
+		],
+		"description": "vector v(n, vector<int>(m))"
+	},
+	
+	"sort": {
+		"prefix": "SNIP sort",
+		"body": [
+			"sort(${1:v}.begin(), $1.end()$0);",
+			""
+		],
+		"description": "sort(v.begin(), v.end())"
+	},
+	
+	"all(vector)": {
+		"prefix": "SNIP all",
+		"body": [
+			"${1:v}.begin(), $1.end()"
+		],
+		"description": "v.begin(), v.end()"
+	},
+
+	"cin x": {
+		"prefix": "SNIP cin_x",
+		"body": [
+			"int x;",
+			"cin >> x;",
+			"",
+			""
+		],
+		"description": "int x"
+	},
+
+	"cin xy": {
+		"prefix": "SNIP cin_xy",
+		"body": [
+			"int x, y;",
+			"cin >> x >> y;",
+			"",
+			""
+		],
+		"description": "int x, y"
+	},
+
+	"cin c": {
+		"prefix": "SNIP cin_c",
+		"body": [
+			"char c;",
+			"cin >> c;",
+			"",
+			""
+		],
+		"description": "char c"
+	},
+
+	"cin st": {
+		"prefix": "SNIP cin_st",
+		"body": [
+			"string st;",
+			"cin >> st;",
+			"",
+			""
+		],
+		"description": "string st"
+	},
+
+	"lambdaWrap": {
+		"prefix": "SNIP lambdaWrap",
+		"body": [
+			"[&]() {",
+			"\t$0",
+			"}()${1:;}"
+		],
+		"description": "wrap with lambda"
+	},
+
+	"cout vector": {
+		"prefix": "dkdnt ",
+		"body": [
+			"for (auto &e : ${1:v}) cout << e << \" \"; cout << \"\\n\";",
+			""
+		],
+		"description": "cout vector"
+	},
+
+	"cout vector2D": {
+		"prefix": "dkdnt2 ",
+		"body": [
+			"for (auto &r : ${1:v}) {",
+			"\tfor (auto &e : r) cout << e << \" \";",
+			"\tcout << \"\\n\";",
+			"}"
+		],
+		"description": "cout vector2D"
+	},
+
+	"for [0:n)": {
+		"prefix": "vhf ",
+		"body": [
+			"for (int ${1:idxName} = 0; $1 < ${2:n}; $1++) {",
+			"\t$0",
+			"}"
+		],
+		"description": "for [0:n)"
+	},
+
+	"for [1:n]": {
+		"prefix": "v=f ",
+		"body": [
+			"for (int ${1:idxName} = 1; $1 <= ${2:n}; $1++) {",
+			"\t$0",
+			"}"
+		],
+		"description": "for [1:n]"
+	}
+}

@@ -1,0 +1,34 @@
+[mgr]
+prepend_keymap = [
+	# plugin
+	{ on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+	{ on = [ "c", "m" ], run = "plugin chmod", desc = "Chmod on selected files" },
+
+    # \c → clipboard로 복사 (대상 폴더 보장, 덮어쓰기 방지 -n)
+    { on = ["\\", "y"], run = "shell --block 'mkdir -p \"$HOME/clipboard\" && cp -r -n -- $@ \"$HOME/clipboard/\"'", desc = "Copy to ~/clipboard" },
+
+    # \x → clipboard로 이동 (대상 폴더 보장)
+    { on = ["\\", "x"], run = "shell --block 'mkdir -p \"$HOME/clipboard\" && mv -- $@ \"$HOME/clipboard/\"'", desc = "Move to ~/clipboard" },
+
+    # \p → 붙여넣기 (비어 있으면 조용히 스킵, 숨김 포함)
+    { on = ["\\", "p"], run = "shell --block '[ -d \"$HOME/clipboard\" ] && find \"$HOME/clipboard\" -mindepth 1 -maxdepth 1 -exec mv -t . -- {} + || true'", desc = "Paste ~/clipboard into current directory" },
+
+    # \d -> 선택된 파일 드래그
+    { on = ["\\", "d"], run = "shell --orphan -- dragon-drop -- $@", desc = "Drag selected via dragon-drop" },
+
+    # # 커서(hover) 하나만 드래그
+    # { on = ["\\", "g", "d"], run = "shell --orphan -- dragon-drop -- $0", desc = "Drag hovered via dragon-drop" },
+
+    # \u → unzip
+    { on = ["\\", "u"], run = "shell --block '~/.config/yazi/yazi-unzip \"$0\"'", desc = "Unzip hovered .zip into same-name folder" },
+
+    # \z -> zip
+    { on = ["\\", "z"], run = "shell --block '~/.config/yazi/yazi-zip -- \"$@\"'", desc = "Zip selected (top-level basenames)" },
+
+    # go
+    { on = ["g", "D"], run = "cd ~/Desktop", desc = "Go ~/Desktop" },
+    { on = ["g", "s"], run = "cd ~/Pictures/Screenshots", desc = "Go ~/Pictures/Screenshots" },
+    { on = ["g", "n"], run = "cd ~/notepad", desc = "Go ~/notepad" },
+	{ on = ["g", "p"], run = 'cd "~/vsc/ps"', desc = "Go ~/vsc/ps" },
+	{ on = ["g", "m"], run = "cd ~/mnt", desc = "Go ~/mnt" },
+]

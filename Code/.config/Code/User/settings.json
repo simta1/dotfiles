@@ -1,0 +1,25 @@
+{
+    "workbench.colorTheme": "Default Light Modern",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "explorer.confirmDelete": false,
+    "cph.language.cpp.Args": "-std=c++17 -O2",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.lineNumbers": "relative",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.minimap.enabled": false,
+    
+    "terminal.integrated.inheritEnv": true,
+    "makefile.configureOnOpen": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "files.restoreUndoStack": false,
+    "keyboard.dispatch": "keyCode"
+}

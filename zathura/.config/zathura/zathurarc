@@ -1,0 +1,19 @@
+set adjust-open "best-fit"
+set pages-per-row 1
+
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+set zoom-min 10
+
+set guioptions "sc"
+
+set default-bg "#1e1e2e"
+set default-fg "#cdd6f4"
+
+set render-loading "false"
+
+set recolor-lightcolor "#1e1e2e"
+set recolor-darkcolor "#cdd6f4"
+set recolor-keephue "true"
