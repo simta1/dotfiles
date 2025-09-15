@@ -23,6 +23,8 @@ vim.keymap.set("n", "<C-S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer
 vim.keymap.set("i", "<C-Tab>", "<Esc><cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("i", "<C-S-Tab>", "<Esc><cmd>bprevious<CR>", { desc = "Previous buffer" })
 
+vim.keymap.set("i", "<S-Tab>", "<C-d>", { desc = "Outdent line" })
+
 vim.keymap.del("n", "<leader><leader>")
 
 vim.keymap.set("n", "]g", function()
