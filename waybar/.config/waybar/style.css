@@ -1,17 +1,17 @@
-@define-color bg #1b1b25;
-@define-color fg #dedede;
-@define-color sep #F8F8F2;
+@define-color bg     #282a36;
+@define-color fg     #f8f8f2;
+@define-color sep    #44475a;
 
-@define-color white #eeffff;
-@define-color black #15121c;
-@define-color red #cb5760;
-@define-color green #999f63;
-@define-color yellow #d4a067;
-@define-color blue #6c90a8;
-@define-color purple #776690;
-@define-color cyan #528a9b;
-@define-color pink #ffa8c5;
-@define-color orange #c87c3e;
+@define-color white  #f8f8f2;
+@define-color black  #191a21;
+@define-color red    #ff5555;
+@define-color green  #50fa7b;
+@define-color yellow #f1fa8c;
+@define-color blue   #6272a4;
+@define-color purple #bd93f9;
+@define-color cyan   #8be9fd;
+@define-color pink   #ff79c6;
+@define-color orange #ffb86c;
 
 * {
     border:none;
@@ -51,21 +51,22 @@ window#waybar {
 .modules-left   {padding-left:  7px;}
 .modules-right  {padding-right: 7px;}
 
-#custom-mpd         { color: #f9e2af; }
-#bluetooth          { color: #89b4fa; }
-#network            { color: #94e2d5; }
-#clock              { color: #40c9a2; }
-#clock.simpleclock  { color: #00d4ff; }
-#temperature        { color: #f87171; }
-#cpu                { color: #f9e2af; }
-#memory             { color: #cba6f7; }
-#backlight          { color: #f9e2af; }
-#pulseaudio         { color: #a6e3a1; }
-#pulseaudio.muted   { color: #6c7086; }
-#custom-mic.no { color: #a6e3a1; }
-#custom-mic.yes { color: #f38ba8; }
-#tray               { color: #cba6f7; }
-#battery            { color: #a6e3a1; }
+#custom-mpd        { color: @yellow; }
+#bluetooth         { color: @blue; }
+#network           { color: @cyan; }
+#clock             { color: @green; }
+#clock.simpleclock { color: @cyan; }
+#temperature       { color: @red; }
+#cpu               { color: @yellow; }
+#memory            { color: @purple; }
+#backlight         { color: @yellow; }
+#pulseaudio        { color: @green; }
+#pulseaudio.muted  { color: @sep; }
+#custom-mic.no     { color: @green; }
+#custom-mic.yes    { color: @red; }
+#tray              { color: @purple; }
+#battery           { color: @green; }
+tooltip { border: 2px solid @blue; }
 
 /* #bluetooth .bt-icon { */
 /*     font-size: 20px; */
