@@ -40,7 +40,7 @@ window#waybar {
 
 #custom-mpd, #bluetooth, #network,
 #clock, #clock#simpleclock,
-#temperature, #cpu, #memory, #backlight, #pulseaudio, #tray, #battery {
+#temperature, #cpu, #memory, #backlight, #pulseaudio, #custom-mic, #tray, #battery {
     padding: 5px 10px;
     margin: 6px 4px;
     border-radius: 6px;
@@ -62,6 +62,8 @@ window#waybar {
 #backlight          { color: #f9e2af; }
 #pulseaudio         { color: #a6e3a1; }
 #pulseaudio.muted   { color: #6c7086; }
+#custom-mic.no { color: #a6e3a1; }
+#custom-mic.yes { color: #f38ba8; }
 #tray               { color: #cba6f7; }
 #battery            { color: #a6e3a1; }
 

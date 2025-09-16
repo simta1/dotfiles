@@ -23,6 +23,7 @@
         "memory",
         "backlight",
         "pulseaudio",
+		"custom/mic",
         "tray",
         "battery"
     ],
@@ -113,6 +114,12 @@
         },
         "on-click": "pavucontrol"
     },
+	"custom/mic": {
+		"exec": "~/.config/waybar/scripts/mic.sh",
+		"interval": 1,
+		"return-type": "json",
+		"format": "{}"
+	},
   // "custom/power": {
   //   "tooltip": false,
   //   "on-click": "wlogout -p layer-shell &",
