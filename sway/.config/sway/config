@@ -160,12 +160,11 @@ bindsym $mod+Shift+r reload
 bindsym $mod+d exec rofi -show drun -no-default-config -config ~/.config/rofi/config.rasi
 
 # 음량/음소거
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym XF86AudioMute        exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-# bindsym Ctrl+F3 exec amixer set Capture nocap && notify-send -a "Microphone" "Microphone" "Microphone is muted"
-# bindsym Ctrl+F4 exec amixer set Capture cap && notify-send -a "Microphone" "Microphone" "Microphone is unmuted"
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym --locked Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1% && pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym --locked Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1% && pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # brightness
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set +5%
