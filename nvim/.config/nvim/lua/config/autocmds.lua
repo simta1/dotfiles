@@ -11,8 +11,8 @@
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
         vim.api.nvim_set_hl(0, "Visual", { bg = "#536c91" })
-        vim.api.nvim_set_hl(0, "CursorLine", { bg = "#3e4a5c" })
-		vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#3e4a5c" })
+        vim.api.nvim_set_hl(0, "CursorLine", { bg = "#44475a" })
+        vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#44475a" })
     end,
 })
 
