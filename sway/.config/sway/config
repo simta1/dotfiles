@@ -25,6 +25,9 @@ input type:touchpad {
     tap enabled
     tap_button_map lrm
     pointer_accel 0.5
+
+	drag enabled
+	drag_lock disabled
 }
 
 bindsym Ctrl+F9 exec "swaymsg input type:touchpad events disabled && notify-send 'Touchpad' 'Touchpad disabled'"
