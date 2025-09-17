@@ -8,6 +8,7 @@ vim.keymap.set("n", "<leader><leader>x", ":w | bd<CR>", { desc = "Save & Close B
 
 vim.keymap.set("i", "<C-a>", "<Esc>ggVG", opts)
 vim.keymap.set("v", "<C-a>", "<Esc>ggVG", opts)
+vim.keymap.set("v", "<C-x>", '"+d', opts)
 vim.keymap.set("v", "<C-c>", '"+y', opts)
 vim.keymap.set("n", "<C-c>", '"+yl', opts)
 vim.keymap.set("i", "<C-v>", '<C-r><C-o>+', opts)
