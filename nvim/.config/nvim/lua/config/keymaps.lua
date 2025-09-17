@@ -162,3 +162,17 @@ if vim.g.vscode then
         vim.keymap.set("n", "<C-r>", "<C-r>", { noremap = true, silent = true, desc = "native nvim redo" })
     end)
 end
+
+if vim.g.neovide then
+	vim.keymap.set("n", "<C-=>", function()
+		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * 1.1
+	end, { desc = "Neovide 확대" })
+
+	vim.keymap.set("n", "<C-->", function()
+		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor / 1.1
+	end, { desc = "Neovide 축소" })
+
+	vim.keymap.set("n", "<C-0>", function()
+		vim.g.neovide_scale_factor = 1.0
+	end, { desc = "Neovide 초기화" })
+end
