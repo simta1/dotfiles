@@ -13,12 +13,6 @@ return {
 
             opts.keymap = vim.tbl_deep_extend("force", opts.keymap or {}, {
                 preset = "none",
-                -- ["<CR>"] = {
-                --     function(cmp)
-                --         cmp.cancel()
-                --         feed_cr()
-                --     end,
-                -- },
 				["<CR>"] = { "fallback" },
                 ["<Tab>"] = {
                     function(cmp)
@@ -28,6 +22,10 @@ return {
                     end,
                     "fallback",
                 },
+				["<C-n>"] = { function(cmp) cmp.select_next() end },
+				["<C-p>"] = { function(cmp) cmp.select_prev() end },
+				["<Down>"] = { function(cmp) cmp.select_next() end },
+				["<Up>"]   = { function(cmp) cmp.select_prev() end },
             })
         end,
     },
