@@ -141,6 +141,9 @@ stow -v yazi
 
 # zathura
 stow -v zathura
+
+# zellij
+stow -v zellij
 ```
 
 ## sddm theme
