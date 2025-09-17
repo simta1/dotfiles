@@ -1,20 +1,56 @@
-mpd_host = "127.0.0.1"
-mpd_port = "6600"
+ncmpcpp_directory = ~/.ncmpcpp
+lyrics_directory = ~/.ncmpcpp/lyrics
+
+# MPD
+mpd_host = "localhost"
+mpd_port = 6600
+mpd_connection_timeout = 5
 mpd_music_dir = "~/Music"
+mpd_crossfade_time = 5
 
-ncmpcpp_directory = "~/.config/ncmpcpp"
-playlist_disable_highlight_delay = 2
+# Visualizer
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "visualizer"
+visualizer_in_stereo = yes
+visualizer_type = spectrum
+visualizer_look = "+|"
+visualizer_color = "cyan, magenta, yellow, blue"
+visualizer_spectrum_smooth_look = no
 
-visualizer_in_stereo = "yes"
-visualizer_type = "spectrum"
-visualizer_look = "▇ "
-visualizer_color = "blue, cyan, green, yellow, magenta, red"
+# UI
+system_encoding = "UTF-8"
 
-playlist_display_mode = "columns"
-browser_display_mode = "columns"
-search_engine_display_mode = "columns"
+playlist_disable_highlight_delay = 5
+message_delay_time = 5
 
-progressbar_look = "━━━"
-header_visibility = "yes"
-statusbar_visibility = "yes"
-titles_visibility = "yes"
+song_list_format = {%a - }{%t}|{%f}
+song_status_format = { %a - }{%t}|{%f}
+song_library_format = {%n - }{%t}|{%f}
+
+song_columns_list_format = (20)[]{a} (50)[white]{t} (20)[cyan]{b} (7f)[magenta]{l}
+
+playlist_show_remaining_time = yes
+playlist_display_mode = columns
+browser_display_mode = classic
+search_engine_display_mode = classic
+
+incremental_seeking = yes
+seek_time = 1
+volume_change_step = 2
+
+autocenter_mode = yes
+centered_cursor = yes
+
+header_visibility = yes
+statusbar_visibility = yes
+titles_visibility = yes
+
+screen_switcher_mode = browser, media_library, visualizer
+startup_screen = playlist
+startup_slave_screen = visualizer
+startup_slave_screen_focus = no
+
+display_volume_level = yes
+display_remaining_time = yes
+
+colors_enabled = yes
