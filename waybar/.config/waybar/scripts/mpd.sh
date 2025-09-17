@@ -18,7 +18,7 @@ case $state in
     *)           icon="" ;;
 esac
 
-maxlen=10
+maxlen=1
 if [ ${#song} -gt $maxlen ]; then
     short="${song:0:$maxlen}"
 	short=$(echo "$short" | sed 's/[[:space:]-]*$//')
