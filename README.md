@@ -51,6 +51,12 @@ yay -S neovide
 stow -v neovide
 ```
 
+## System configs
+```bash
+sudo cp -i ~/dotfiles/etc/conf.d/* /etc/conf.d/
+sudo cp -i ~/dotfiles/etc/modprobe.d/* /etc/modprobe.d/
+```
+
 ## Font
 ```bash
 sudo pacman -S ttf-iosevka-nerd
