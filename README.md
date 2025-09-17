@@ -64,7 +64,7 @@ sudo pacman -S ttf-iosevka-nerd
 
 ## Scripts
 ```bash
-cp scripts/* ~/.local/bin/
+stow -v -t ~/.local/bin bin
 ```
 
 ## Applications
