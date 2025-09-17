@@ -6,20 +6,19 @@ return {
 		vim.cmd.colorscheme("dracula")
 		vim.o.background = "dark"
 
-		-- 기본 highlight
 		vim.cmd([[
 			highlight comment       guifg=#ffb86c ctermfg=215 gui=italic
 			highlight normal        guibg=none ctermbg=none
 			highlight normalnc      guibg=none ctermbg=none
-			highlight normalfloat   guibg=none ctermbg=none
-			highlight floatborder   guibg=none ctermbg=none
+			" highlight normalfloat   guibg=none ctermbg=none
+			" highlight floatborder   guibg=none ctermbg=none
 			highlight signcolumn    guibg=none ctermbg=none
-			highlight linenr		guibg=none ctermbg=none
+			highlight linenr        guibg=none ctermbg=none
 			highlight endofbuffer   guibg=none ctermbg=none
 			highlight search        gui=underline,bold guibg=none guifg=#eeff41 cterm=underline ctermfg=190
 			highlight incsearch     gui=underline,bold guibg=none guifg=#00ffc3 cterm=underline ctermfg=49
 			highlight cursearch     gui=underline,bold guibg=none guifg=#00ffc3 cterm=underline ctermfg=49
-			highlight NonText		guifg=#6c7086 guibg=NONE
+			highlight NonText       guifg=#6c7086 guibg=NONE
 		]])
 	end,
 }
