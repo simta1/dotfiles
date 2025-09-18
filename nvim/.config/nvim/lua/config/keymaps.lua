@@ -177,3 +177,33 @@ if vim.g.neovide then
 		vim.g.neovide_scale_factor = 1.0
 	end, { desc = "Neovide 초기화" })
 end
+
+local function split_line_at_cursor()
+    local bufnr = 0
+    local pos = vim.api.nvim_win_get_cursor(0)
+    local row = pos[1] - 1
+    local col = pos[2]
+
+    local line = vim.api.nvim_buf_get_lines(bufnr, row, row + 1, true)[1]
+    if not line then
+        return
+    end
+
+    local before = string.sub(line, 1, col + 1)
+    local after = string.sub(line, col + 2) or ""
+    before = before:gsub("%s+$", "")
+    after = after:gsub("^%s+", "")
+
+    -- undo 지원
+    vim.api.nvim_buf_set_lines(bufnr, row, row + 1, true, { before })
+    pcall(vim.cmd, "undojoin")
+    vim.api.nvim_buf_set_lines(bufnr, row + 1, row + 1, true, { after })
+
+    -- 자동 들여쓰기 추가
+    vim.api.nvim_win_set_cursor(0, { row + 2, 0 })
+    vim.cmd("normal! ==")
+end
+
+vim.keymap.set("n", "<leader><CR>", split_line_at_cursor, {
+    desc = "Split line at cursor (trim & reindent)",
+})
