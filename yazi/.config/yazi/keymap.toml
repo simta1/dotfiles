@@ -14,7 +14,7 @@ prepend_keymap = [
     { on = ["\\", "p"], run = "shell --block '[ -d \"$HOME/clipboard\" ] && find \"$HOME/clipboard\" -mindepth 1 -maxdepth 1 -exec mv -t . -- {} + || true'", desc = "Paste ~/clipboard into current directory" },
 
     # \d -> 선택된 파일 드래그
-    { on = ["\\", "d"], run = "shell --orphan -- dragon-drop -- $@", desc = "Drag selected via dragon-drop" },
+    { on = ["\\", "d"], run = "shell --orphan -- dragon-drop -- \"$@\"", desc = "Drag selected via dragon-drop" },
 
     # # 커서(hover) 하나만 드래그
     # { on = ["\\", "g", "d"], run = "shell --orphan -- dragon-drop -- $0", desc = "Drag hovered via dragon-drop" },
