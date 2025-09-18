@@ -64,7 +64,13 @@ sudo pacman -S ttf-iosevka-nerd
 
 ## Scripts
 ```bash
-stow -v -t ~/.local/bin bin
+stow -v bin
+
+mkdir -p ~/.config/systemd/user
+stow -v systemd
+
+systemctl --user daemon-reload
+systemctl --user enable --now battery-alert.timer
 ```
 
 ## Applications

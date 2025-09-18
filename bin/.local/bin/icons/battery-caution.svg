@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배터리 본체 -->
+  <rect x="6" y="12" width="34" height="24" rx="3" ry="3" fill="#e0e0e0"/>
+  <!-- 배터리 단자 -->
+  <rect x="40" y="20" width="4" height="8" rx="1" ry="1" fill="#9e9e9e"/>
+  <!-- 배터리 잔량 (10%) -->
+  <rect x="8" y="14" width="3" height="20" rx="2" ry="2" fill="#e53935"/>
+  <!-- 경고 느낌표 -->
+  <text x="26" y="31" font-size="20" font-weight="bold" fill="#e53935">!</text>
+</svg>
