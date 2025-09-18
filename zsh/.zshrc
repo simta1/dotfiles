@@ -230,6 +230,7 @@ alias ghosttyrc='nvim ~/.config/ghostty/config'
 alias mpdrc='nvim ~/.config/mpd/mpd.conf'
 alias ncmpcpprc='nvim ~/.config/ncmpcpp/config'
 alias zellijrc='nvim ~/.config/zellij/config.kdl'
+alias zathurarc='nvim ~/.config/zathura/zathurarc'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
