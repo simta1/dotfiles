@@ -162,6 +162,9 @@ bindsym $mod+Shift+r reload
 # rofi
 bindsym $mod+d exec rofi -show drun -no-default-config -config ~/.config/rofi/config.rasi
 
+# 
+bindsym $mod+c exec ~/.local/bin/pickcolor.sh
+
 # 음량/음소거
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl set-sink-mute @DEFAULT_SINK@ 0
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl set-sink-mute @DEFAULT_SINK@ 0

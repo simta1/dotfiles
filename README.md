@@ -123,7 +123,7 @@ mkdir -p ~/.ssh
 stow -v ssh
 
 # sway
-sudo pacman -S grim slurp
+sudo pacman -S grim slurp wl-clipboard imagemagick
 stow -v sway
 
 # wakatime
