@@ -8,6 +8,7 @@ return {
 		local sep = helper.separators
 		local animation = require('wlanimation')
 		local efffects = require('wlanimation.effects')
+		local lsp_comps = require('windline.components.lsp')
 		local git_comps = require('windline.components.git')
 
 		local b_components = require('windline.components.basic')
@@ -122,6 +123,26 @@ return {
 			end,
 		}
 
+		basic.lsp_diagnos = {
+			name = 'diagnostic',
+			hl_colors = {
+				red = { 'red', 'black' },
+				yellow = { 'yellow', 'black' },
+				blue = { 'blue', 'black' },
+			},
+			width = breakpoint_width,
+			text = function(bufnr)
+				if lsp_comps.check_lsp(bufnr) then
+					return {
+						{ lsp_comps.lsp_error({ format = '  %s', show_zero = true }), 'red' },
+						{ lsp_comps.lsp_warning({ format = '  %s', show_zero = true }), 'yellow' },
+						{ lsp_comps.lsp_hint({ format = '  %s', show_zero = true }), 'blue' },
+					}
+				end
+				return ''
+			end,
+		}
+
 		local status_color = ''
 		local change_color = function()
 			local anim_colors = {
@@ -181,7 +202,7 @@ return {
 		local wave_left = {
 			text = function()
 				return {
-					{ sep.right_rounded .. ' ', { 'black_light', 'waveleft1' } },
+					{ sep.right_rounded .. ' ', { 'black', 'waveleft1' } },
 					{ sep.right_rounded .. ' ', { 'waveleft1', 'waveleft2' } },
 					{ sep.right_rounded .. ' ', { 'waveleft2', 'waveleft3' } },
 					{ sep.right_rounded .. ' ', { 'waveleft3', 'waveleft4' } },
@@ -228,6 +249,9 @@ return {
 				{ ' ', '' },
 				-- basic.file_name,
 				basic.file,
+				{ sep.right_rounded, { 'black_light', 'black' } },
+				basic.lsp_diagnos,
+				{ ' ', '' },
 				wave_left,
 				{ ' ', { 'FilenameBg', 'wavedefault' } },
 				basic.divider,
