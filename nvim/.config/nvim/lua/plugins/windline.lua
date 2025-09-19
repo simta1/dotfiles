@@ -10,6 +10,7 @@ return {
 		local efffects = require('wlanimation.effects')
 		local lsp_comps = require('windline.components.lsp')
 		local git_comps = require('windline.components.git')
+		local cava_comps = require("windline.components.cava")
 
 		local b_components = require('windline.components.basic')
 		local state = _G.WindLine.state
@@ -207,7 +208,7 @@ return {
 					{ sep.right_rounded .. ' ', { 'waveleft2', 'waveleft3' } },
 					{ sep.right_rounded .. ' ', { 'waveleft3', 'waveleft4' } },
 					{ sep.right_rounded .. ' ', { 'waveleft4', 'waveleft5' } },
-					{ sep.right_rounded .. ' ', { 'waveleft5', 'wavedefault' } },
+					{ sep.right_rounded .. ' ', { 'waveleft5', 'black' } },
 				}
 			end,
 			click = change_color,
@@ -216,7 +217,7 @@ return {
 		local wave_right = {
 			text = function()
 				return {
-					{ ' ' .. sep.left_rounded, { 'waveright1', 'wavedefault' } },
+					{ ' ' .. sep.left_rounded, { 'waveright1', 'black' } },
 					{ ' ' .. sep.left_rounded, { 'waveright2', 'waveright1' } },
 					{ ' ' .. sep.left_rounded, { 'waveright3', 'waveright2' } },
 					{ ' ' .. sep.left_rounded, { 'waveright4', 'waveright3' } },
@@ -253,7 +254,8 @@ return {
 				basic.lsp_diagnos,
 				{ ' ', '' },
 				wave_left,
-				{ ' ', { 'FilenameBg', 'wavedefault' } },
+				basic.divider,
+				cava_comps.cava_comp,
 				basic.divider,
 				wave_right,
 				basic.recording,
@@ -297,5 +299,9 @@ return {
 		vim.defer_fn(function()
 			change_color()
 		end, 100)
+
+		vim.keymap.set("n", "<leader>uv", function()
+			cava_comps.toggle()
+		end, { desc = "Toggle Cava visualizer" })
 	end,
 }

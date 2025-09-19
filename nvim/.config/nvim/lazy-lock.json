@@ -47,5 +47,5 @@
   "ts-comments.nvim": { "branch": "main", "commit": "1bd9d0ba1d8b336c3db50692ffd0955fe1bb9f0c" },
   "vim-wakatime": { "branch": "master", "commit": "d7973b157a632d1edeff01818f18d67e584eeaff" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
-  "windline.nvim": { "branch": "master", "commit": "c1e7bc1591df5aff7b6bc77c92cc7e3e846f4dac" }
+  "windline.nvim": { "branch": "master", "commit": "1630ab15aa3349f1ad32ef78d5cff632ae74625d" }
 }
