@@ -36,6 +36,7 @@ prepend_keymap = [
     { on = ["g", "n"], run = "cd ~/notepad", desc = "Go ~/notepad" },
 	{ on = ["g", "p"], run = 'cd "~/vsc/ps"', desc = "Go ~/vsc/ps" },
 	{ on = ["g", "m"], run = "cd ~/mnt", desc = "Go ~/mnt" },
+	{ on = ["g", "c"], run = "cd ~/coding/", desc = "Go ~/coding/" },
 
 	# linemode (plugin bookmarks랑 겹쳐서 따로 매핑)
 	{ on = ["i", "s"], run = "linemode size" },
