@@ -10,6 +10,7 @@ return {
 		local efffects = require('wlanimation.effects')
 		local git_comps = require('windline.components.git')
 
+		local b_components = require('windline.components.basic')
 		local state = _G.WindLine.state
 
 		local hl_list = {
@@ -94,15 +95,31 @@ return {
 			end,
 		}
 
-		basic.file_name = {
+		-- basic.file_name = {
+		-- 	text = function()
+		-- 		local name = vim.fn.expand('%:p:t')
+		-- 		if name == '' then
+		-- 			name = '[No Name]'
+		-- 		end
+		-- 		return name .. ' '
+		-- 	end,
+		-- 	hl_colors = { 'FilenameFg', 'FilenameBg' },
+		-- }
+
+		basic.file = {
+			name = 'file',
+			hl_colors = {
+				default = hl_list.White,
+			},
 			text = function()
-				local name = vim.fn.expand('%:p:t')
-				if name == '' then
-					name = '[No Name]'
-				end
-				return name .. ' '
+				return {
+					{b_components.cache_file_icon({ default = '' }), 'default'},
+					{ ' ', 'default' },
+					{ b_components.cache_file_name('[No Name]', 'unique') },
+					{ b_components.file_modified('[+] ')},
+					{ b_components.cache_file_size()},
+				}
 			end,
-			hl_colors = { 'FilenameFg', 'FilenameBg' },
 		}
 
 		local status_color = ''
@@ -198,7 +215,8 @@ return {
 				{ ' ', '' },
 				{ sep.right_rounded, { 'white', 'black_light' } },
 				{ ' ', '' },
-				basic.file_name,
+				-- basic.file_name,
+				basic.file,
 				wave_left,
 				{ ' ', { 'FilenameBg', 'wavedefault' } },
 				basic.divider,
