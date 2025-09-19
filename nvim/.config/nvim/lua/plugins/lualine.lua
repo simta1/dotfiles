@@ -1,10 +1,11 @@
 return {
-    "nvim-lualine/lualine.nvim",
-    opts = {
-        sections = {
-            lualine_c = {
-                { "filename", path = 1, symbols = { modified = " [+]", readonly = " [-]" } },
-            },
-        },
-    },
+	"nvim-lualine/lualine.nvim",
+	enabled = false,
+	opts = {
+		sections = {
+			lualine_c = {
+				{ "filename", path = 1, symbols = { modified = " [+]", readonly = " [-]" } },
+			},
+		},
+	},
 }
