@@ -206,6 +206,17 @@ return {
 			click = change_color,
 		}
 
+		basic.recording = {
+			name = "recording",
+			text = function()
+				local rec = vim.fn.reg_recording()
+				if rec ~= "" then
+					return { { " recording @" .. rec .. " ", { "yellow", "black" } } }
+				end
+				return ""
+			end,
+		}
+
 		local default = {
 			filetypes = { 'default' },
 			active = {
@@ -221,6 +232,7 @@ return {
 				{ ' ', { 'FilenameBg', 'wavedefault' } },
 				basic.divider,
 				wave_right,
+				basic.recording,
 				basic.line_col,
 				basic.progress,
 			},
