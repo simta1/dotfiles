@@ -82,10 +82,10 @@ listview {
 }
 
 scrollbar {
-    handle-width:         6px;
-    handle-color:         @border;
-    padding:              0 2px;
-    background-color:     @bg;
+    handle-width:   8px;
+    border-radius:  8px;
+    background-color: @bg-alt;
+    handle-color:     @accent;
 }
 
 element {
