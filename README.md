@@ -116,7 +116,6 @@ stow -v ncmpcpp
 
 # rofi
 stow -v rofi
-# 이후 https://github.com/newmanls/rofi-themes-collection 설정
 
 # ssh
 mkdir -p ~/.ssh
@@ -163,13 +162,3 @@ stow -v zellij
 # https://github.com/Keyitdev/sddm-astronaut-theme
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 ```
-
-## rofi theme
-```bash
-# https://github.com/newmanls/rofi-themes-collection
-git clone https://github.com/lr-tech/rofi-themes-collection.git
-cd rofi-themes-collection
-mkdir -p ~/.local/share/rofi/themes/
-```
-`rofi -show run`에서 `rofi-theme-selector` 실행   
-`enter`로 테마 preview, `Alt+a`로 테마 적용   

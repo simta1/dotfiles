@@ -1,1 +1,151 @@
-@theme "/usr/share/rofi/themes/fullscreen-preview.rasi"
+configuration {
+    font:                 "Iosevka Nerd Font 14, Roboto Mono 14";
+    show-icons:           true;
+    icon-theme:           "Papirus-Dark";
+    drun-display-format:  "{name}";
+    sidebar-mode:         false;
+    matching:             "fuzzy";
+    case-sensitive:       false;
+    sort:                 true;
+
+	display-drun: "  Apps";
+}
+
+* {
+    bg:        #1b1b25;
+    bg-alt:    #16161e;
+    fg:        #e6e6e6;
+    fg-dim:    #c8c8d0;
+    border:    #343746;
+    sel:       #282a36;
+    accent:    #bd93f9;
+    urgent:    #ff5555;
+
+    radius:    12px;
+    spacing:   10px;
+    text-color: @fg;
+    background-color: @bg;
+}
+
+window {
+    background-color:     rgba(27,27,37,0.96);
+    border:               1px;
+    border-color:         @border;
+    border-radius:        @radius;
+    padding:              14px;
+    width:                32%;
+}
+
+mainbox {
+    background-color:     @bg;
+    border-radius:        @radius;
+    spacing:              10px;
+    children:             [ inputbar, listview ];
+}
+
+inputbar {
+    background-color:     @bg-alt;
+    border:               1px;
+    border-color:         @border;
+    border-radius:        @radius;
+    padding:              10px 12px;
+    spacing:              10px;
+    children:             [ prompt, entry ];
+}
+
+prompt {
+    text-color:           @accent;
+    font:                 "Iosevka Nerd Font 13";
+    background-color:     transparent;
+    text:                 "  Apps";
+}
+
+entry {
+    text-color:           @fg;
+    background-color:     transparent;
+    border:               0;
+    vertical-align:       0.5;
+}
+
+listview {
+    background-color:     @bg;
+    border:               1px;
+    border-color:         @border;
+    border-radius:        @radius;
+    columns:              1;
+    lines:                10;
+    fixed-height:         true;
+    cycle:                true;
+    spacing:              8px;
+    padding:              6px;
+    scrollbar:            true;
+}
+
+scrollbar {
+    handle-width:         6px;
+    handle-color:         @border;
+    padding:              0 2px;
+    background-color:     @bg;
+}
+
+element {
+    background-color:     @bg;
+    text-color:           @fg;
+    border-radius:        12px;
+    padding:              10px 14px;
+    spacing:              16px;
+    min-height:           48px;
+}
+
+element normal.normal {
+    background-color:     @bg;
+    text-color:           @fg;
+}
+
+element selected.normal {
+    background-color:     @sel;
+    text-color:           @fg;
+    border:               1px;
+    border-color:         @accent;
+}
+
+element normal.urgent {
+    background-color:     #2a1b1b;
+    text-color:           @urgent;
+}
+
+element selected.urgent {
+    background-color:     #3a2222;
+    text-color:           @fg;
+    border:               1px;
+    border-color:         @urgent;
+}
+
+element-icon {
+    size:                 36px;
+    vertical-align:       0.5;
+    horizontal-align:     0.0;
+    background-color:     transparent;
+    text-color:           inherit;
+}
+
+element-text {
+    text-color:           inherit;
+    font:                 "Iosevka Nerd Font 14, Roboto Mono 14";
+    background-color:     transparent;
+    highlight:            bold;
+    padding:              0;
+    vertical-align:       0.5;
+}
+
+textbox, button, mode-switcher, case-indicator, element alternate, message {
+    background-color:     @bg;
+    text-color:           @fg-dim;
+}
+
+button selected {
+    background-color:     @sel;
+    border:               1px;
+    border-color:         @accent;
+    text-color:           @fg;
+}
