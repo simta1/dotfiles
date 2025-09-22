@@ -132,7 +132,45 @@ config.keys   = {
     { mods = "LEADER|ALT", key = "n", action = act.ActivateKeyTable { name = "new_split", one_shot = true } },
 }
 
+local default_keys = wezterm.gui.default_key_tables()
+local function extend_keys(base, extra)
+	local t = {}
+	for _, v in ipairs(base) do table.insert(t, v) end
+	for _, v in ipairs(extra) do table.insert(t, v) end
+	return t
+end
+
+local function close_copy_mode()
+    return act.Multiple({
+        act.CopyMode('ClearSelectionMode'),
+        act.CopyMode('ClearPattern'),
+        act.CopyMode('Close'),
+    })
+end
+local function next_match(int)
+    local m = act.CopyMode('NextMatch')
+    if int == -1 then
+        m = act.CopyMode('PriorMatch')
+    end
+    return act.Multiple({ m, act.CopyMode('ClearSelectionMode') })
+end
+
 config.key_tables = {
+	copy_mode = extend_keys(default_keys.copy_mode or {}, {
+		{ key = 'c', mods = 'CTRL', action = close_copy_mode() },
+		{ key = 'q', mods = 'NONE', action = close_copy_mode() },
+		{ key = 'Escape', mods = 'NONE', action = close_copy_mode() },
+		{ key = '/', mods = 'NONE', action = act.Multiple({
+			act.CopyMode('ClearPattern'),
+			act.Search({ CaseInSensitiveString = '' }),
+		}), },
+		{ key = 'n', mods = 'NONE', action = next_match(1) },
+		{ key = 'N', mods = 'NONE', action = next_match(-1) },
+	}),
+	search_mode = extend_keys(default_keys.search_mode or {}, {
+		{ key = 'Escape', mods = 'NONE', action = act.CopyMode('Close') },
+		{ key = 'Enter',  mods = 'NONE', action = act.ActivateCopyMode },
+	}),
     activate_pane = {
         { key = 'LeftArrow',  action = act.ActivatePaneDirection 'Left'  },
         { key = 'DownArrow',  action = act.ActivatePaneDirection 'Down'  },
