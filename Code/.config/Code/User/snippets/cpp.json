@@ -7,9 +7,9 @@
 			"",
 			"int main() {",
 			"\tcin.tie(0) -> sync_with_stdio(0);",
-			"\t",
+			"",
 			"\t$0",
-			"\t",
+			"",
 			"\treturn 0;",
 			"}"
 		],
@@ -36,9 +36,9 @@
 			"",
 			"int main() {",
 			"\tcin.tie(0) -> sync_with_stdio(0);",
-			"\t",
+			"",
 			"\t$0",
-			"\t",
+			"",
 			"\treturn 0;",
 			"}"
 		],
