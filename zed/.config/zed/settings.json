@@ -7,30 +7,30 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "hard_tabs": false,
-  "tab_size": 4,
-  "base_keymap": "VSCode",
-  "relative_line_numbers": true,
-  "gutter": {
-    "line_numbers": true
-  },
-  "minimap": {
-    "show": "never"
-  },
-  "telemetry": {
-    "metrics": false
-  },
-  "icon_theme": {
-    "mode": "light",
-    "light": "Zed (Default)",
-    "dark": "Zed (Default)"
-  },
-  "vim_mode": true,
-  "ui_font_size": 16,
-  "buffer_font_size": 15,
-  "theme": {
-    "mode": "light",
-    "light": "One Light",
-    "dark": "Ayu Dark"
-  }
+	"hard_tabs": false,
+	"tab_size": 4,
+	"base_keymap": "VSCode",
+	"relative_line_numbers": true,
+	"gutter": {
+		"line_numbers": true
+	},
+	"minimap": {
+		"show": "never"
+	},
+	"telemetry": {
+		"metrics": false
+	},
+	"icon_theme": {
+		"mode": "light",
+		"light": "Zed (Default)",
+		"dark": "Zed (Default)"
+	},
+	"vim_mode": true,
+	"ui_font_size": 16,
+	"buffer_font_size": 15,
+	"theme": {
+		"mode": "light",
+		"light": "One Light",
+		"dark": "Ayu Dark"
+	}
 }
