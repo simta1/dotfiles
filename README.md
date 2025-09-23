@@ -153,6 +153,9 @@ stow -v yazi
 # zathura
 stow -v zathura
 
+# zed
+stow -v zed
+
 # zellij
 stow -v zellij
 ```
