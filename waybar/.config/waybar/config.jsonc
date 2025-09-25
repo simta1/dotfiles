@@ -11,7 +11,8 @@
         "sway/workspaces",
         "custom/mpd",
         "bluetooth",
-        "network"
+        "network",
+		"custom/idle"
     ],
     "modules-center": [
         "clock",
@@ -60,6 +61,13 @@
         "interval": 2,
 		"max-length": 10
     },
+	"custom/idle": {
+		"exec": "~/.local/bin/idle-status.sh",
+		"interval": 0,
+		"return-type": "json",
+		"on-click": "~/.local/bin/toggle-idle.sh",
+		"signal": 8
+	},
     "tray": {
         "show-passive-items": true,
         "spacing": 10

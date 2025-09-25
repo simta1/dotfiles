@@ -38,7 +38,7 @@ window#waybar {
     color: #ffffff;
 }
 
-#custom-mpd, #bluetooth, #network,
+#custom-mpd, #bluetooth, #network, #custom-idle,
 #clock, #clock#simpleclock,
 #temperature, #cpu, #memory, #backlight, #pulseaudio, #custom-mic, #tray, #battery {
     padding: 5px 10px;
@@ -54,6 +54,8 @@ window#waybar {
 #custom-mpd        { color: @yellow; }
 #bluetooth         { color: @blue; }
 #network           { color: @cyan; }
+#custom-idle.on    { color: @green; }
+#custom-idle.off   { color: @red; }
 #clock             { color: @green; }
 #clock.simpleclock { color: @cyan; }
 #temperature       { color: @red; }
