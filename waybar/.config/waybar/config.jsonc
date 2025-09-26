@@ -63,7 +63,7 @@
     },
 	"custom/idle": {
 		"exec": "~/.local/bin/idle-status.sh",
-		"interval": 0,
+		"interval": 30,
 		"return-type": "json",
 		"on-click": "~/.local/bin/toggle-idle.sh",
 		"signal": 8

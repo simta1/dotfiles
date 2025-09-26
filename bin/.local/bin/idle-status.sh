@@ -1,14 +1,7 @@
 #!/bin/bash
 
-PIDFILE="/tmp/swayidle-toggle.pid"
-
-if [ -f "$PIDFILE" ]; then
-    STATUS=$(cat "$PIDFILE")
-    if [ "$STATUS" = "on" ]; then
-        echo '{"text":" Idle: On","class":"on"}'
-    else
-        echo '{"text":" Idle: Off","class":"off"}'
-    fi
+if pgrep -x swayidle > /dev/null; then
+    echo '{"text":" Idle: On","class":"on"}'
 else
     echo '{"text":" Idle: Off","class":"off"}'
 fi

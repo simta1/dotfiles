@@ -63,7 +63,7 @@ input * {
 # swaylock
 bindsym $mod+Shift+x exec ~/.local/bin/lock.sh
 
-exec_always pkill -x swayidle; ~/.local/bin/start-idle.sh
+exec pkill -x swayidle; ~/.local/bin/start-idle.sh
 bindsym $mod+Shift+d exec ~/.local/bin/toggle-idle.sh
 
 # Shortcuts
