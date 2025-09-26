@@ -8,7 +8,8 @@ return {
 		})
 
 		opts.sources = opts.sources or {}
-		opts.sources.default = { "lsp", "path", "snippets", "buffer" }
+		-- opts.sources.default = { "lsp", "path", "snippets", "buffer" }
+		opts.sources.default = { "path" }
 
 		opts.keymap = vim.tbl_deep_extend("force", opts.keymap or {}, {
 			preset = "none",
