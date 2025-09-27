@@ -10,8 +10,8 @@ return {
 			highlight comment       guifg=#ffb86c ctermfg=215 gui=italic
 			highlight normal        guibg=none ctermbg=none
 			highlight normalnc      guibg=none ctermbg=none
-			" highlight normalfloat   guibg=none ctermbg=none
-			" highlight floatborder   guibg=none ctermbg=none
+			highlight normalfloat   guibg=none ctermbg=none
+			highlight floatborder   guibg=none ctermbg=none
 			highlight signcolumn    guibg=none ctermbg=none
 			highlight linenr        guibg=none ctermbg=none
 			highlight endofbuffer   guibg=none ctermbg=none
