@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.window_background_opacity = 0.3 -- 배경 불투명도
+config.window_background_opacity = 0.5 -- 배경 불투명도
 
 config.enable_tab_bar = false
 
