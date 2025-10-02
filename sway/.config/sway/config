@@ -75,6 +75,9 @@ bindsym $mod+g exec ghostty
 bindsym $mod+Shift+q kill
 
 # waybar
+bar {
+    swaybar_command waybar
+}
 bindsym $mod+b exec pkill -x waybar || waybar
 
 # change focus
@@ -262,10 +265,6 @@ bindsym $mod+Shift+n exec neovide --no-multigrid -- -c "startinsert"
 
 # ps폴더 기준으로 엶 + ps할 때 스택 터지는 거 방지
 bindsym $mod+Shift+p exec sh -c 'ulimit -s unlimited && cd "$HOME/vsc/ps" && exec neovide --no-multigrid'
-
-bar {
-    swaybar_command waybar
-}
 
 # ------------------------------------------------
 # ------------------------------------------------

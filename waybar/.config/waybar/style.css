@@ -7,7 +7,7 @@
 @define-color red    #ff5555;
 @define-color green  #50fa7b;
 @define-color yellow #f1fa8c;
-@define-color blue   #6272a4;
+@define-color blue   #b3d6ff;
 @define-color purple #bd93f9;
 @define-color cyan   #8be9fd;
 @define-color pink   #ff79c6;
@@ -52,7 +52,8 @@ window#waybar {
 .modules-right  {padding-right: 7px;}
 
 #custom-mpd        { color: @yellow; }
-#bluetooth         { color: @blue; }
+#bluetooth         { color: @white; }
+#bluetooth.connected { color: @blue; }
 #network           { color: @cyan; }
 #custom-idle.on    { color: @green; }
 #custom-idle.off   { color: @red; }
@@ -69,10 +70,6 @@ window#waybar {
 #tray              { color: @purple; }
 #battery           { color: @green; }
 tooltip { border: 2px solid @blue; }
-
-/* #bluetooth .bt-icon { */
-/*     font-size: 20px; */
-/* } */
 
 tooltip {
   background-color: #1e1e2e;
