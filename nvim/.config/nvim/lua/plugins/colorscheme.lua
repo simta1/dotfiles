@@ -19,6 +19,7 @@ return {
 			highlight incsearch     gui=underline,bold guibg=none guifg=#00ffc3 cterm=underline ctermfg=49
 			highlight cursearch     gui=underline,bold guibg=none guifg=#00ffc3 cterm=underline ctermfg=49
 			highlight NonText       guifg=#6c7086 guibg=NONE
+			highlight WinSeparator  guifg=#89b4fa guibg=NONE gui=bold
 		]])
 	end,
 }
