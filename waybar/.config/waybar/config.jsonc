@@ -75,8 +75,8 @@
     "clock#simpleclock": {
         "tooltip": false,
         "interval": 1,
-        "format": " {:%H:%M}",
-        "format-alt": " {:%H:%M:%S}"
+        "format": " {:%H:%M:%S}",
+        "format-alt": " {:%H:%M}"
     },
     "clock": {
         "format": " {:L%a %d %b}",
