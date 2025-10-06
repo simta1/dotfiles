@@ -290,3 +290,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 alias cdgitroot='cd $(git rev-parse --show-toplevel)'
+
+alias skku-vpn='/usr/local/axgate/axgate_sslvpn_cui'
