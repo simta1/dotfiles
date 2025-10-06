@@ -23,6 +23,6 @@ if [[ "$status" == "Discharging" ]]; then
 elif [[ "$status" == "Charging" ]]; then
     if (( capacity >= FULL )); then
         notify-send -u normal -i ~/.local/bin/icons/battery-full.svg \
-			"Battery Notice" "<span font='16' foreground='#43a047'><b>Battery ${capacity}%. Consider unplugging.</b></span>"
+			"Battery Notice" "<span font='16' foreground='#43a047'><b>Battery at ${capacity}%. Consider unplugging.</b></span>"
     fi
 fi
