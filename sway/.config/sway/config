@@ -66,6 +66,9 @@ bindsym $mod+Shift+x exec ~/.local/bin/lock.sh
 exec ~/.local/bin/start-idle.sh
 bindsym $mod+Shift+d exec ~/.local/bin/toggle-idle.sh
 
+# turn off screen
+bindsym XF86ScreenSaver exec swaymsg "output * dpms off"
+
 # Shortcuts
 floating_modifier $mod
 bindsym $mod+Return exec $term
@@ -198,10 +201,6 @@ bindsym $mod+Shift+s exec sh -c '\
 
 # screenshot 이후 imv가 종료되지 않을 경우
 bindsym $mod+Shift+Escape exec 'pkill -TERM -x imv || true'
-
-# turn off screen
-# bindsym XF86ScreenSaver exec --no-startup-id xset dpms force off
-bindsym XF86ScreenSaver exec swaymsg "output * dpms off"
 
 # resize mode
 mode "resize" {
