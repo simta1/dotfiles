@@ -119,6 +119,7 @@ stow -v rofi
 
 # sway
 sudo pacman -S grim slurp wl-clipboard imagemagick
+yay -S swaylock-effects
 stow -v sway
 
 # wallpapers
