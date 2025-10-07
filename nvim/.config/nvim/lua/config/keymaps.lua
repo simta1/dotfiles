@@ -167,17 +167,18 @@ if vim.g.vscode then
 end
 
 if vim.g.neovide then
-	vim.keymap.set("n", "<C-=>", function()
+	local modes = { "n", "i", "v", "c" }
+	vim.keymap.set(modes, "<C-=>", function()
 		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * 1.1
-	end, { desc = "Neovide 확대" })
+	end, { desc = "화면 확대" })
 
-	vim.keymap.set("n", "<C-->", function()
+	vim.keymap.set(modes, "<C-->", function()
 		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor / 1.1
-	end, { desc = "Neovide 축소" })
+	end, { desc = "화면 축소" })
 
-	vim.keymap.set("n", "<C-0>", function()
+	vim.keymap.set(modes, "<C-0>", function()
 		vim.g.neovide_scale_factor = 1.0
-	end, { desc = "Neovide 초기화" })
+	end, { desc = "화면 배율 초기화" })
 end
 
 local function split_line_at_cursor()
