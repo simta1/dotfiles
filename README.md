@@ -119,7 +119,7 @@ stow -v ncmpcpp
 stow -v rofi
 
 # sway
-sudo pacman -S grim slurp wl-clipboard imagemagick
+sudo pacman -S grim slurp wl-clipboard cliphist imagemagick
 yay -S swaylock-effects
 stow -v sway
 

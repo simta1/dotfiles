@@ -162,6 +162,10 @@ bindsym $mod+Shift+r reload
 # rofi
 bindsym $mod+d exec rofi -show drun -no-default-config -config ~/.config/rofi/config.rasi
 
+# clipboard
+exec wl-paste --watch cliphist store
+bindsym $mod+c exec ~/.local/bin/rofi-clipboard.sh
+
 # 
 bindsym $mod+Shift+c exec ~/.local/bin/pickcolor.sh
 
