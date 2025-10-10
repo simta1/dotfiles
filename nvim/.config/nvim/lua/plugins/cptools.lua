@@ -8,6 +8,7 @@ return {
 				-- 'as' is the display name shown in the :Cptools menu
 				{ use = "divisors", as = "divisors" },
 				{ use = "highly_composite_number", as = "highly composite number" },
+				{ use = "modular_inverse", as = "modular inverse" },
 				{ use = "isqrt", as = "isqrt" },
 				{ use = "primality_test", as = "prime check" },
 				{ use = "prime_factorization", as = "prime factorization" },
