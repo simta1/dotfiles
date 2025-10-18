@@ -8,13 +8,13 @@ id   = "git"
 name = "*/"
 run  = "git"
 
-# [opener]
-# zathura = [
-# 	{ run = 'zathura "$@"', desc = "Open with Zathura" },
-# ]
+[opener]
+pdf = [
+	{ run = 'for f in "$@"; do xdg-open "$f" >/dev/null 2>&1 & done', desc = "Open with system default", orphan = true },
+]
 
 [open]
 prepend_rules = [
 	{ name = "*.svg", use = "edit" },
-	# { name = "*.pdf", use = "zathura" },
+	{ name = "*.pdf", use = "pdf" },
 ]
