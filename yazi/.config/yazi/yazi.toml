@@ -10,7 +10,8 @@ run  = "git"
 
 [opener]
 pdf = [
-	{ run = 'for f in "$@"; do xdg-open "$f" >/dev/null 2>&1 & done', desc = "Open with system default", orphan = true },
+	# xdg-open이 비동기라서 pdf순서대로 열려면 sleep 필요
+	{ run = 'for f in "$@"; do xdg-open "$f" >/dev/null 2>&1 & sleep 0.1; done', desc = "Open PDFs sequentially", orphan = true }
 ]
 
 [open]
