@@ -206,6 +206,19 @@ bindsym $mod+Shift+s exec sh -c '\
     kill $pid; rm "$freeze" \
 '
 
+bindsym $mod+Shift+a exec sh -c '\
+    dir="$HOME/Pictures/Screenshots"; \
+    tmpdir="$dir/tmp"; \
+    mkdir -p "$tmpdir"; \
+    last="$(ls -t "$dir"/Screenshot_*.png 2>/dev/null | head -n 1)"; \
+    if [ -n "$last" ]; then \
+        mv "$last" "$tmpdir"/ && \
+        notify-send "스크린샷 이동" "마지막 스크린샷을 tmp로 이동했습니다." -i "$tmpdir/$(basename "$last")"; \
+    else \
+        notify-send "스크린샷 이동" "스크린샷이 없습니다."; \
+    fi \
+'
+
 # screenshot 이후 imv가 종료되지 않을 경우
 bindsym $mod+Shift+Escape exec 'pkill -TERM -x imv || true'
 
