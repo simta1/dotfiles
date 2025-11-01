@@ -128,6 +128,7 @@ mkdir -p ~/Pictures
 stow -v wallpapers
 
 # waybar
+sudo pacman -S pavucontrol
 stow -v waybar
 
 # wezterm
