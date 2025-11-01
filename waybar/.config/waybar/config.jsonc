@@ -64,7 +64,7 @@
 		"max-length": 10
     },
 	"custom/idle": {
-		"exec": "~/.local/bin/idle-status.sh",
+		"exec": "~/.config/waybar/scripts/idle.sh",
 		"interval": 30,
 		"return-type": "json",
 		"on-click": "~/.local/bin/toggle-idle.sh",
@@ -129,9 +129,10 @@
     },
 	"custom/mic": {
 		"exec": "~/.config/waybar/scripts/mic.sh",
-		"interval": 1,
+		"interval": 30,
 		"return-type": "json",
-		"format": "{}"
+		"on-click": "~/.local/bin/toggle-mic-mute.sh",
+		"signal": 8
 	},
   // "custom/power": {
   //   "tooltip": false,
