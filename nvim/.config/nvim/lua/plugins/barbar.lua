@@ -29,6 +29,10 @@ return {
 		-- 	:BufferCloseBuffersLeft
 		-- 	:BufferCloseBuffersRight
 	},
+	keys = {
+		{ "<S-H>", "<Cmd>BufferPrevious<CR>", desc = "Prev buffer (barbar)" },
+		{ "<S-L>", "<Cmd>BufferNext<CR>", desc = "Next buffer (barbar)" },
+	},
 	config = function(_, opts)
 		require("barbar").setup(opts)
 
@@ -37,6 +41,10 @@ return {
 		-- Move to previous/next
 		map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
 		map("n", "<A-.>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
+
+		-- 여기에 설정하면 lazyvim기본 매핑(bnext, bprevious)에 덮어씌워져서 keys={}으로 옮김
+		-- map("n", "<S-H>", "<Cmd>BufferPrevious<CR>", { noremap = true, silent = true })
+		-- map("n", "<S-L>", "<Cmd>BufferNext<CR>", { noremap = true, silent = true })
 
 		-- Re-order to previous/next
 		map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", { noremap = true, silent = true })
