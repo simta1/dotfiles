@@ -4,8 +4,6 @@
 
 local opts = { noremap = true, silent = true }
 
-vim.keymap.set("n", "<leader><leader>x", ":w | bd<CR>", { desc = "Save & Close Buffer" })
-
 vim.keymap.set("i", "<C-a>", "<Esc>ggVG", opts)
 vim.keymap.set("v", "<C-a>", "<Esc>ggVG", opts)
 
