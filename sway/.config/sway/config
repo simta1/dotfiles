@@ -17,7 +17,8 @@ exec_always xrdb -merge ~/.Xresources
 exec ~/.config/bongocat/bongocat-follow-focus.sh
 
 # wallpaper
-output * bg ~/Pictures/wallpapers/bg_cat.jpg fill
+output * bg ~/Pictures/wallpapers/bg0.jpg fill
+bindsym $mod+Shift+w exec ~/.local/bin/change-wallpaper.sh
 
 # touchpad
 input type:touchpad {
@@ -109,6 +110,7 @@ bindsym $mod+Shift+Left     move left   50 px
 bindsym $mod+Shift+Down     move down   50 px
 bindsym $mod+Shift+Up       move up     50 px
 bindsym $mod+Shift+Right    move right  50 px
+bindsym $mod+Shift+m        move position center
 
 # split
 bindsym $mod+Shift+b splith
