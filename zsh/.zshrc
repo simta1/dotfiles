@@ -292,3 +292,13 @@ export NVM_DIR="$HOME/.nvm"
 alias cdgitroot='cd $(git rev-parse --show-toplevel)'
 
 alias skku-vpn='/usr/local/axgate/axgate_sslvpn_cui'
+
+# mpc
+alias mc='mpc clear'
+alias mu='mpc update'
+alias ma='mpc add'
+alias ms='mpc shuffle'
+alias mp='mpc play'
+alias mn='mpc next'
+alias mpr='mpc prev'
+alias mt='mpc toggle'
