@@ -56,6 +56,7 @@ stow -v neovide
 sudo cp -i ~/dotfiles/etc/conf.d/* /etc/conf.d/
 sudo cp -i ~/dotfiles/etc/modprobe.d/* /etc/modprobe.d/
 sudo cp -i ~/dotfiles/etc/security/faillock.conf /etc/security/faillock.conf
+sudo cp -i ~/dotfiles/etc/pam.d/* /etc/pam.d/
 ```
 
 ## Font
