@@ -257,18 +257,12 @@ for_window [app_id="spectacle"] floating enable
 for_window [app_id="firefox"] border pixel $border_width
 for_window [class="Firefox"] border pixel $border_width
 
-# monitor settings
-# bindsym $mod+n exec --no-startup-id xrandr --auto --output eDP-1 --mode 1920x1080 --right-of HDMI-1 && i3-msg restart &
-# bindsym $mod+m exec --no-startup-id xrandr --auto --output HDMI-1 --off && i3-msg restart &
+# CHECK: swaymsg -t get_outputs
+# HDMI선 꼽고 이거 하면 복제임
+# swaymsg 'output eDP-1 mode 1920x1080 position 0 0'
+# swaymsg 'output HDMI-A-1 mode 1920x1080 position 0 0'
 
-# TODO
-
-# swaymsg -t get_outputs
-# 내장 FHD만
-bindsym $mod+m exec swaymsg 'output HDMI-A-1 disable; output eDP-1 mode 1920x1080 position 0,0'
-
-# 듀얼: eDP-1을 왼쪽, HDMI를 오른쪽
-bindsym $mod+n exec swaymsg 'output eDP-1 enable mode 1920x1080 position 0,0; output HDMI-A-1 enable position 1920,0'
+bindsym $mod+p exec --no-startup-id ~/.local/bin/monitor_switcher.sh
 
 # 
 focus_on_window_activation focus
