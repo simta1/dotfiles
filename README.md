@@ -116,6 +116,9 @@ stow -v mako
 stow -v mpd
 stow -v ncmpcpp
 
+# mpv
+stow -v mpv
+
 # rofi
 stow -v rofi
 
