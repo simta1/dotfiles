@@ -3,6 +3,9 @@ set $mod Mod4
 set $term wezterm
 set $border_width 3
 
+# 
+exec --no-startup-id udiskie -tan
+
 # cursor
 seat seat0 hide_cursor 0
 # seat seat0 xcursor_theme breeze_cursors 36
