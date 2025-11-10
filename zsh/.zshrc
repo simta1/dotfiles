@@ -302,3 +302,5 @@ alias mp='mpc play'
 alias mn='mpc next'
 alias mpr='mpc prev'
 alias mt='mpc toggle'
+
+alias dol='nohup dolphin . >/dev/null 2>&1 &'
