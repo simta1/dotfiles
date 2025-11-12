@@ -20,7 +20,7 @@ exec_always xrdb -merge ~/.Xresources
 exec ~/.config/bongocat/bongocat-follow-focus.sh
 
 # wallpaper
-output * bg ~/Pictures/wallpapers/bg0.jpg fill
+exec_always ~/.local/bin/reload-wallpaper.sh
 bindsym $mod+Shift+w exec ~/.local/bin/change-wallpaper.sh
 
 # touchpad
