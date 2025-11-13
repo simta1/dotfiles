@@ -1,5 +1,6 @@
 return {
 	"windwp/windline.nvim",
+	enabled = false,
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		local windline = require('windline')
