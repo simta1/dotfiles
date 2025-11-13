@@ -147,7 +147,7 @@ stow -v xresources
 
 # yazi
 sudo pacman -S zip unzip
-yay -S ueberzugpp fd chafa zoxide p7zip resvg jq trash-cli
+yay -S ueberzugpp fd chafa zoxide p7zip resvg jq trash-cli blobdrop-git
 stow -v yazi
 # yazi --debug 로 dependencies 확인
 

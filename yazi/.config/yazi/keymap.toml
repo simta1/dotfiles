@@ -18,8 +18,8 @@ prepend_keymap = [
     # \p → ~/clipboard에서 붙여넣기
     { on = ["\\", "p"], run = "shell --block '[ -d \"$HOME/clipboard\" ] && find \"$HOME/clipboard\" -mindepth 1 -maxdepth 1 -exec mv -t . -- {} + || true'", desc = "Paste ~/clipboard into current directory" },
 
-    # \d -> dragon-drop
-    { on = ["\\", "d"], run = "shell --orphan -- dragon-drop -- \"$@\"", desc = "Drag selected via dragon-drop" },
+	# \d -> blobdrop
+	{ on = ["\\", "d"], run = "shell --orphan -- blobdrop -- \"$@\"", desc = "Drag selected via blobdrop" },
 
     # \o → dolphin
     { on = ["\\", "o"], run = "shell --orphan -- bash -c 'nohup dolphin \"$PWD\" >/dev/null 2>&1 &'", desc = "Open current directory in Dolphin" },

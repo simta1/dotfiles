@@ -255,6 +255,8 @@ bindsym $mod+Shift+i exec sh -c 'body=$(swaymsg -t get_tree | jq -r '"'"'.. | ob
 # floating
 # for_window [class="(?i)tk"] floating enable
 for_window [app_id="bottles"] floating enable, border pixel $border_width
+for_window [app_id="blobdrop"] floating enable, border pixel $border_width
+for_window [app_id="1password"] floating enable, border pixel $border_width
 for_window [class="(?i)kakaotalk.exe"] floating enable, move position center, border pixel $border_width
 for_window [app_id="spectacle"] floating enable
 for_window [app_id="firefox"] border pixel $border_width
