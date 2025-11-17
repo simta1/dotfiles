@@ -74,6 +74,9 @@ bindsym $mod+Shift+x exec ~/.local/bin/lock.sh
 exec ~/.local/bin/start-idle.sh
 bindsym $mod+Shift+d exec ~/.local/bin/toggle-idle.sh
 
+# 
+bindsym $mod+Hangul exec --no-startup-id ~/.local/bin/toggle-kor-eng
+
 # turn off screen
 bindsym XF86ScreenSaver exec swaymsg "output * dpms off"
 
