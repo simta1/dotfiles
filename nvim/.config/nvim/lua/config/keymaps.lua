@@ -12,7 +12,7 @@ vim.keymap.set("v", "<C-x>", '"+d', opts)
 
 vim.keymap.set("i", "<C-c>", '<C-o>"+yy', opts)
 vim.keymap.set("v", "<C-c>", '"+y', opts)
-vim.keymap.set("n", "<C-c>", '"+yy', opts)
+vim.keymap.set("n", "<C-c>", '"+yl', opts)
 
 vim.keymap.set("i", "<C-v>", '<C-r><C-o>+', opts)
 vim.keymap.set("i", "<C-S-v>", '<C-r><C-o>+', opts)
