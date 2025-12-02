@@ -287,7 +287,8 @@ client.urgent           #FF5555 #282A36 #F8F8F2 #FF5555 #FF5555
 
 # 메모장 대용
 # bindsym $mod+Shift+n exec wezterm start -- nvim +startinsert
-bindsym $mod+Shift+n exec neovide --no-multigrid -- -c "startinsert"
+# bindsym $mod+Shift+n exec neovide --no-multigrid -- -c "startinsert"
+bindsym $mod+Shift+n exec sh -c 'TEMPFILE=$(mktemp --suffix=".md") && wezterm start -- nvim "$TEMPFILE" +startinsert'
 
 # ps폴더 기준으로 엶 + ps할 때 스택 터지는 거 방지
 bindsym $mod+Shift+p exec sh -c 'ulimit -s unlimited && cd "$HOME/vsc/ps" && exec neovide --no-multigrid'
