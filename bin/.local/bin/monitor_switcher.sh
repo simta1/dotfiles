@@ -8,13 +8,16 @@ SELECTION=$(echo -e "$OPTIONS" | rofi -dmenu \
     -config ~/.config/rofi/clipboard.rasi)
 
 case "$SELECTION" in
-	"1. Single Display (eDP-1)")
+    "1. Single Display (eDP-1)")
         swaymsg 'output HDMI-A-1 disable; output eDP-1 enable mode 1920x1080 position 0 0'
+        notify-send "Display Mode" "Single Display (eDP-1) 활성화됨"
         ;;
     "2. Dual Extend (Side-by-Side)")
         swaymsg 'output eDP-1 enable mode 1920x1080 position 0 0; output HDMI-A-1 enable mode 1920x1080 position 1920 0'
+        notify-send "Display Mode" "Dual Extend (Side-by-Side) 적용됨"
         ;;
     "3. Dual Duplicate (Mirroring)")
         swaymsg 'output eDP-1 enable mode 1920x1080 position 0 0; output HDMI-A-1 enable mode 1920x1080 position 0 0'
+        notify-send "Display Mode" "Dual Duplicate (Mirroring) 적용됨"
         ;;
 esac
