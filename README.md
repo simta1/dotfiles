@@ -128,10 +128,6 @@ sudo pacman -S polkit-gnome fprintd
 yay -S swaylock-effects
 stow -v sway
 
-# wallpapers
-mkdir -p ~/Pictures
-stow -v wallpapers
-
 # waybar
 sudo pacman -S pavucontrol
 stow -v waybar

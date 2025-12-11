@@ -3,15 +3,19 @@
 DIR="$HOME/Pictures/wallpapers"
 STATE="$HOME/.cache/current_bg"
 
-MAX_INDEX=3
-
 if [[ -f "$STATE" ]]; then
     index=$(<"$STATE")
 else
     index=0
 fi
 
-swaymsg "output * bg $DIR/bg${index}.jpg fill"
+shopt -s nullglob
+file_array=( "$DIR/bg${index}."* )
+file_path="${file_array[0]}"
 
-echo "$index" > "$STATE"
-
+if [[ -f "$file_path" ]]; then
+    swaymsg "output * bg $file_path fill"
+    echo "$index" > "$STATE"
+else
+    notify-send -u critical "no wallpaper" "can't find $DIR/bg${index}.*"
+fi

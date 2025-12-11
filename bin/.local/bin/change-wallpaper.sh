@@ -3,16 +3,25 @@
 DIR="$HOME/Pictures/wallpapers"
 STATE="$HOME/.cache/current_bg"
 
-MAX_INDEX=3
-
 if [[ -f "$STATE" ]]; then
     index=$(<"$STATE")
 else
     index=0
 fi
 
-next=$(( (index + 1) % (MAX_INDEX + 1) ))
+next=$(( index + 1 ))
 
-swaymsg "output * bg $DIR/bg${next}.jpg fill"
+shopt -s nullglob
+file_array=( "$DIR/bg${next}."* )
+file_path="${file_array[0]}"
 
-echo "$next" > "$STATE"
+if [[ -z "$file_path" ]]; then
+    next=0
+    file_array=( "$DIR/bg${next}."* )
+    file_path="${file_array[0]}"
+fi
+
+if [[ -f "$file_path" ]]; then
+    swaymsg "output * bg $file_path fill"
+    echo "$next" > "$STATE"
+fi
