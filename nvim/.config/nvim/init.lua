@@ -3,7 +3,7 @@ require("config.lazy")
 
 if vim.g.neovide then
 	vim.g.neovide_cursor_vfx_mode = "railgun"
-	vim.g.neovide_opacity = 0.2
+	vim.g.neovide_opacity = 1.0
 
 	-- vim.g.neovide_cursor_vfx_mode = "sonicboom"
 	-- vim.g.neovide_cursor_vfx_mode = "ripple"
