@@ -155,6 +155,9 @@ stow -v zed
 
 # zellij
 stow -v zellij
+
+# opencode
+stow -v opencode
 ```
 
 ## sddm theme
