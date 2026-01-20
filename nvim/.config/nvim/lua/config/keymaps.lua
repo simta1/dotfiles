@@ -33,6 +33,11 @@ vim.keymap.set("n", "<leader>v", "Vai", { remap = true, silent = true, desc = "S
 
 vim.keymap.del("n", "<leader><leader>")
 
+local chars = { "{", "[", "(", '"', "'" }
+for _, char in ipairs(chars) do
+  pcall(vim.keymap.del, "c", char)
+end
+
 vim.keymap.set("n", "]g", function()
     if vim.wo.diff then
         return "]g"
