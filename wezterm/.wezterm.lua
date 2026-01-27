@@ -1,5 +1,8 @@
 local wezterm = require 'wezterm'
-local config = wezterm.config_builder()
+local config = {}
+if wezterm.config_builder then
+  config = wezterm.config_builder()
+end
 
 config.window_background_opacity = 0.5 -- 배경 불투명도
 
