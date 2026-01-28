@@ -8,7 +8,7 @@
     "passthrough": false,
     "fixed-center": true,
     "modules-left": [
-        "sway/workspaces",
+        "hyprland/workspaces",
         "custom/mpd",
         "bluetooth",
         "network",
@@ -28,7 +28,7 @@
         "tray",
         "battery"
     ],
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "on-click": "activate",
         "format": "{name}",
         "all-outputs": true,

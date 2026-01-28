@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-pactl set-source-mute @DEFAULT_SOURCE@ toggle
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
 pkill -RTMIN+8 waybar

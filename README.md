@@ -128,12 +128,24 @@ sudo pacman -S polkit-gnome fprintd
 yay -S swaylock-effects
 stow -v sway
 
+# hyprland
+sudo pacman -S udiskie
+sudo pacman -S hyprpaper
+sudo pacman -S xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+sudo pacman -S hyprpolkitagent
+yay -S nordzy-hyprcursors
+yay -S clipse
+stow -v hyprland
+
 # waybar
 sudo pacman -S pavucontrol
 stow -v waybar
 
 # wezterm
 stow -v wezterm
+
+# kitty
+stow -v kitty
 
 # xinitrc, Xmodmap, xprofile, Xresources
 stow -v xinitrc

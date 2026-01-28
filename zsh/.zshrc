@@ -232,6 +232,7 @@ alias ncmpcpprc='nvim ~/.config/ncmpcpp/config'
 alias zellijrc='nvim ~/.config/zellij/config.kdl'
 alias zathurarc='nvim ~/.config/zathura/zathurarc'
 alias rofirc='nvim ~/.config/rofi/config.rasi'
+alias hyprrc='nvim ~/.config/hypr/hyprland.conf'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
