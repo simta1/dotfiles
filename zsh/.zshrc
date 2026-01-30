@@ -233,6 +233,7 @@ alias zellijrc='nvim ~/.config/zellij/config.kdl'
 alias zathurarc='nvim ~/.config/zathura/zathurarc'
 alias rofirc='nvim ~/.config/rofi/config.rasi'
 alias hyprrc='nvim ~/.config/hypr/hyprland.conf'
+alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
@@ -305,3 +306,5 @@ alias mpr='mpc prev'
 alias mt='mpc toggle'
 
 alias dol='nohup dolphin . >/dev/null 2>&1 &'
+
+alias code='code --ozone-platform-hint=auto'
