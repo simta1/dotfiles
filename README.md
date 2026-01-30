@@ -128,13 +128,14 @@ sudo pacman -S polkit-gnome fprintd
 yay -S swaylock-effects
 stow -v sway
 
+# bottles
+sudo pacman -S flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.usebottles.bottles
+
 # hyprland
-sudo pacman -S udiskie
-sudo pacman -S hyprpaper
-sudo pacman -S xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
-sudo pacman -S hyprpolkitagent
-yay -S nordzy-hyprcursors
-yay -S clipse
+sudo pacman -S udiskie hyprpaper hyprpicker xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent xorg-xwayland zenity
+yay -S wlogout nordzy-hyprcursors clipse hyprshot
 stow -v hyprland
 
 # waybar
