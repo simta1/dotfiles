@@ -21,6 +21,7 @@
     "terminal.integrated.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": "on",
     "files.restoreUndoStack": false,
+
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk_lualatex",
@@ -43,6 +44,20 @@
         }
     ],
     "latex-workshop.latex.recipe.default": "build_teamnote",
-    "latex-workshop.latex.build.forceRecipeUsage": true
+    "latex-workshop.latex.build.forceRecipeUsage": true,
+
+    "path-autocomplete.triggerOutsideStrings": true,
+    "path-autocomplete.pathMappings": {
+        "/": "${workspaceFolder}",
+        "./": "${folder}",
+    },
+    "[latex]": {
+        "editor.quickSuggestions": {
+            "other": true,
+            "strings": true,
+            "comments": true
+        }
+    },
+
     "keyboard.dispatch": "keyCode"
 }
