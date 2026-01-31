@@ -21,5 +21,28 @@
     "terminal.integrated.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": "on",
     "files.restoreUndoStack": false,
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk_lualatex",
+            "command": "latexmk",
+            "args": [
+                "-pdflua",
+                "-shell-escape", // minted 지원
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-outdir=build",
+                "%DOC%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "build_teamnote",
+            "tools": ["latexmk_lualatex"]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "build_teamnote",
+    "latex-workshop.latex.build.forceRecipeUsage": true
     "keyboard.dispatch": "keyCode"
 }
