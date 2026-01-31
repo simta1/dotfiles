@@ -146,6 +146,7 @@ stow -v waybar
 stow -v wezterm
 
 # kitty
+sudo pacman -S ttf-jetbrains-mono-nerd
 stow -v kitty
 
 # xinitrc, Xmodmap, xprofile, Xresources
