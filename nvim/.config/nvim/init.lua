@@ -22,3 +22,4 @@ if vim.g.neovide then
 
 end
 
+vim.opt.fixeol = false
