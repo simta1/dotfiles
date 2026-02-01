@@ -38,14 +38,21 @@ for _, char in ipairs(chars) do
     pcall(vim.keymap.del, "c", char)
 end
 
-if not vim.g.vscode then
+if vim.g.vscode then
+    local vscode = require('vscode')
+    vim.keymap.set('n', ']g', function()
+        vscode.action('workbench.action.editor.nextChange')
+    end)
+    vim.keymap.set('n', '[g', function()
+        vscode.action('workbench.action.editor.previousChange')
+    end)
+else
     local gs = require("gitsigns")
     vim.keymap.set("n", "]g", function()
         if vim.wo.diff then return "]g" end
         vim.schedule(function() gs.nav_hunk("next") end)
         return "<Ignore>"
     end, { expr = true, desc = "Next Git hunk" })
-
     vim.keymap.set("n", "[g", function()
         if vim.wo.diff then return "[g" end
         vim.schedule(function() gs.nav_hunk("prev") end)
