@@ -1,0 +1,336 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "f2",
+        "command": "editor.action.rename",
+        "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+n",
+        "command": "python.execInTerminal"
+    },
+
+    // 파일 생성
+    {
+        "key": "ctrl+n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletFocus"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletFocus"
+    },
+    
+    // 오토핫키 때문에 추가한 거긴 함
+    {
+        "key": "f5",
+        "command": "code-runner.run",
+        "when": "editorTextFocus"
+    },// && editorLangId == 'ahk'"},
+    {
+        "key": "f6",
+        "command": "code-runner.stop"
+    },
+    // {
+    //     "key": "ctrl+shift+v",
+    //     "command": "-java.action.filesExplorerPasteAction",
+    //     "when": "config.editor.pasteAs.enabled && explorerViewletFocus"
+    // },
+
+    // 스니펫
+    {
+        "key": "shift+alt+i",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "ps default code"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+u",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cp default code"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+g",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "GCC optimize"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+r",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "include ext/rope"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+p",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "include ext/pb_ds"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "fastio"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+t",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "codeforces testcase for loop"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+n",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin n"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+m",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin nm"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+k",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin nmk"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+j",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin nk"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+v",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin v"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+2",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin vec2D"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+o",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "sort"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+a",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "all(vector)"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+x",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin x"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+y",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin xy"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+c",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin c"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+s",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "cin st"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "lambdaWrap"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+,",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "for [0:n)"
+        },
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+=",
+        "command": "editor.action.insertSnippet",
+        "args": {
+            "langId": "cpp",
+            "name": "for [1:n]"
+        },
+        "when": "editorTextFocus"
+    },
+    
+    // 스니펫 탭 정지점($) 이동
+    {
+        "key": "space",
+        "command": "jumpToNextSnippetPlaceholder",
+        "when": "editorTextFocus && hasNextTabstop"
+    },
+    {
+        "key": "shift+space",
+        "command": "jumpToPrevSnippetPlaceholder",
+        "when": "editorTextFocus && hasPrevTabstop"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert.a && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-vscode-neovim.escape",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert.c && neovim.init && neovim.mode != 'normal' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+pagedown",
+        "command": "-workbench.action.nextEditor"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+pageup",
+        "command": "-workbench.action.previousEditor"
+    },
+    {
+        "key": "ctrl+alt+up",
+        "command": "editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+down",
+        "command": "editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+up",
+        "command": "-editor.action.insertCursorAbove",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+down",
+        "command": "-editor.action.insertCursorBelow",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysNormal./ && neovim.init && neovim.mode != 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    {
+        "key": "ctrl+/",
+        "command": "-vscode-neovim.send",
+        "when": "editorTextFocus && neovim.ctrlKeysInsert./ && neovim.init && neovim.mode == 'insert' && editorLangId not in 'neovim.editorLangIdExclusions'"
+    },
+    
+    {
+        "command": "workbench.action.editor.nextChange",
+        "key": "] g",
+        "when": "editorTextFocus && neovim.mode == 'normal'"
+    },
+    {
+        "command": "workbench.action.editor.previousChange",
+        "key": "[ g",
+        "when": "editorTextFocus && neovim.mode == 'normal'"
+    }
+    
+    // // 파일 탐색기 이동
+    // {
+    //     "key": "p",
+    //     "command": "workbench.files.action.goToParentFolder",
+    //     "when": "explorerViewletVisible && !inputFocus"
+    // }
+]

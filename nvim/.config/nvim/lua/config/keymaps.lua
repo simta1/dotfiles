@@ -35,28 +35,23 @@ vim.keymap.del("n", "<leader><leader>")
 
 local chars = { "{", "[", "(", '"', "'" }
 for _, char in ipairs(chars) do
-  pcall(vim.keymap.del, "c", char)
+    pcall(vim.keymap.del, "c", char)
 end
 
-vim.keymap.set("n", "]g", function()
-    if vim.wo.diff then
-        return "]g"
-    end
-    vim.schedule(function()
-        require("gitsigns").nav_hunk("next")
-    end)
-    return "<Ignore>"
-end, { expr = true, desc = "Next Git hunk" })
+if not vim.g.vscode then
+    local gs = require("gitsigns")
+    vim.keymap.set("n", "]g", function()
+        if vim.wo.diff then return "]g" end
+        vim.schedule(function() gs.nav_hunk("next") end)
+        return "<Ignore>"
+    end, { expr = true, desc = "Next Git hunk" })
 
-vim.keymap.set("n", "[g", function()
-    if vim.wo.diff then
-        return "[g"
-    end
-    vim.schedule(function()
-        require("gitsigns").nav_hunk("prev")
-    end)
-    return "<Ignore>"
-end, { expr = true, desc = "Previous Git hunk" })
+    vim.keymap.set("n", "[g", function()
+        if vim.wo.diff then return "[g" end
+        vim.schedule(function() gs.nav_hunk("prev") end)
+        return "<Ignore>"
+    end, { expr = true, desc = "Previous Git hunk" })
+end
 
 -- Save unnamed buffer via Yazi (folder picker in a floating terminal)
 do
