@@ -165,17 +165,6 @@ function zle-line-init {
 }
 zle -N zle-line-init
 
-ssh() {
-	local host="$1"
-	local password_info=$(sed -n "/Host $host/,/#/p" ~/.ssh/config | sed -n '/#/p' | head -n 1 | sed 's/.*# //')
-
-	if [[ -n "$password_info" ]]; then
-        echo -e "🔑 : $password_info"
-	fi
-
-	command ssh "$@"
-}
-
 alias pf='fzf --preview "bat --style=numbers --color=always {}"'
 
 # 전체 하위 디렉토리 포함
@@ -239,8 +228,25 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 alias dnd='dragon-drop'
 
+ssh() {
+	local host="$1"
+	local password_info=$(sed -n "/Host $host/,/#/p" ~/.ssh/config | sed -n '/#/p' | head -n 1 | sed 's/.*# //')
+
+	if [[ -n "$password_info" ]]; then
+        echo -e "🔑 : $password_info"
+	fi
+
+	command ssh "$@"
+}
+
 sshmount() {
-    local host="$1"
+	local host="$1"
+	local password_info=$(sed -n "/Host $host/,/#/p" ~/.ssh/config | sed -n '/#/p' | head -n 1 | sed 's/.*# //')
+
+	if [[ -n "$password_info" ]]; then
+        echo -e "🔑 : $password_info"
+	fi
+
     local dir="$HOME/mnt/remote-$host"
     mkdir -p "$dir"
     if sshfs "$host:/" "$dir" -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3; then
