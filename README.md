@@ -89,9 +89,6 @@ stow -v bongocat
 # btop
 stow -v btop
 
-# calcure
-stow -v calcure
-
 # vscode
 yay -S visual-studio-code-bin
 stow -v Code
