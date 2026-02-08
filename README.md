@@ -130,6 +130,9 @@ sudo pacman -S flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.usebottles.bottles
 
+# clipse
+stow -v clipse
+
 # hyprland
 sudo pacman -S udiskie hyprpaper hyprpicker xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent xorg-xwayland zenity
 yay -S wlogout nordzy-hyprcursors clipse hyprshot
