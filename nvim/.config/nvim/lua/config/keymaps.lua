@@ -18,14 +18,17 @@ vim.keymap.set("i", "<C-v>", '<C-r><C-o>+', opts)
 vim.keymap.set("i", "<C-S-v>", '<C-r><C-o>+', opts)
 vim.keymap.set("i", "<C-r>", '<C-r><C-o>', opts)
 
-vim.keymap.set("i", "<C-H>", "<C-w>", { noremap = true })
-vim.keymap.set("i", "<C-BS>", "<C-w>", { noremap = true }) -- neovide용
-vim.keymap.set("i", "<C-Del>", "<C-o>dw", { noremap = true })
+vim.keymap.set("i", "<C-H>", "<C-w>", opts)
+vim.keymap.set("i", "<C-BS>", "<C-w>", opts) -- neovide용
+vim.keymap.set("i", "<C-Del>", "<C-o>dw", opts)
 
 vim.keymap.set("n", "<C-Tab>", "<cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<C-S-Tab>", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 vim.keymap.set("i", "<C-Tab>", "<Esc><cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("i", "<C-S-Tab>", "<Esc><cmd>bprevious<CR>", { desc = "Previous buffer" })
+
+vim.keymap.set('n', 'gg', 'mggg', { desc = "Mark position and goto first line" })
+vim.keymap.set('n', 'G', 'mgG', { desc = "Mark position and goto last line" })
 
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { desc = "Outdent line" })
 
