@@ -3,7 +3,15 @@ return {
 	opts = {
 		inlay_hints = { enabled = false },
 		servers = {
-			clangd = {},
+            clangd = {
+                cmd = {
+                    "clangd",
+                    "--background-index",
+                    "--clang-tidy",
+                    "--fallback-style=llvm",
+                    "--extra-arg=-Wno-parentheses", 
+                },
+            },
 			stylua = false,
 		},
 	},
