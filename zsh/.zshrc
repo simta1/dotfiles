@@ -313,4 +313,4 @@ alias mt='mpc toggle'
 
 alias dol='nohup dolphin . >/dev/null 2>&1 &'
 
-alias code='code --ozone-platform-hint=auto'
+alias code='code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime'
