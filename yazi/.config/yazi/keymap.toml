@@ -33,6 +33,7 @@ prepend_keymap = [
     # go
     { on = ["g", "D"], run = "cd ~/Desktop", desc = "Go ~/Desktop" },
     { on = ["g", "s"], run = "cd ~/Pictures/Screenshots", desc = "Go ~/Pictures/Screenshots" },
+	{ on = ["g", "S"], run = "cd ~/Desktop/성균관대학교", desc = "Go ~/Desktop/성균관대학교" },
     { on = ["g", "n"], run = "cd ~/notepad", desc = "Go ~/notepad" },
 	{ on = ["g", "p"], run = 'cd "~/vsc/ps"', desc = "Go ~/vsc/ps" },
 	{ on = ["g", "m"], run = "cd ~/mnt", desc = "Go ~/mnt" },
