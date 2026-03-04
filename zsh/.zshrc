@@ -108,7 +108,6 @@ alias kcns='kubectl create deploy netshoot --image nicolaka/netshoot -- sleep in
 alias kcb='kubectl run busybox --image=busybox --restart=Never -- sleep 1d'
 
 # custom alias
-alias sshconfig='bat ~/.ssh/config'
 alias vi='nvim'
 
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
@@ -223,6 +222,7 @@ alias zathurarc='nvim ~/.config/zathura/zathurarc'
 alias rofirc='nvim ~/.config/rofi/config.rasi'
 alias hyprrc='nvim ~/.config/hypr/hyprland.conf'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
+alias sshconfig='nvim ~/.ssh/config'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
