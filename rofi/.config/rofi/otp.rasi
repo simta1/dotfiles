@@ -1,0 +1,18 @@
+@import "config.rasi"
+
+window {
+    width: 25%;
+}
+
+element {
+    spacing: 0;
+    padding: 14px;
+}
+
+element-icon {
+    enabled: false;
+}
+
+element-text {
+    horizontal-align: 0.5;
+}
