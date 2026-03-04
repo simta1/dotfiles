@@ -134,9 +134,12 @@ flatpak install flathub com.usebottles.bottles
 stow -v clipse
 
 # hyprland
-sudo pacman -S udiskie hyprpaper hyprpicker xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent xorg-xwayland zenity
+sudo pacman -S udiskie hyprpaper hyprpicker xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent xorg-xwayland zenity pass pass-otp
 yay -S wlogout nordzy-hyprcursors clipse hyprshot
 stow -v hyprland
+
+# gnupg
+stow -v gnupg
 
 # waybar
 sudo pacman -S pavucontrol
