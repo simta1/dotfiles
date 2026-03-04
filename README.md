@@ -108,6 +108,7 @@ stow -v git
 
 # mako
 stow -v mako
+makoctl reload
 
 # mpd, ncmpcpp
 stow -v mpd

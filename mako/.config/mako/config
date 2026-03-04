@@ -26,7 +26,6 @@ max-icon-size=80
 icon-location=left
 icon-border-radius=10
 
-# Progress (다운로드 등 표시가 오는 앱 대비)
 progress-color=#50FA7BFF
 
 # Grouping / history
@@ -38,27 +37,16 @@ format=<b>%s</b>\n%b
 
 [urgency=low]
 border-color=#8BE9FDFF
+# border-color=#FF79C6FF
 default-timeout=4000
 
 [urgency=normal]
 border-color=#8BE9FDFF
+# border-color=#FF79C6FF
 default-timeout=6000
 
 [urgency=high]
 border-color=#8BE9FDFF
+# border-color=#FF79C6FF
 background-color=#3A2B32F0
 default-timeout=8000
-
-# 분홍색 계열
-# [urgency=low]
-# border-color=#FF79C6FF
-# default-timeout=4000
-# 
-# [urgency=normal]
-# border-color=#FF79C6FF
-# default-timeout=6000
-# 
-# [urgency=high]
-# border-color=#FF79C6FF
-# background-color=#3A2B32F0
-# default-timeout=8000
