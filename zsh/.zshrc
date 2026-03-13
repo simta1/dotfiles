@@ -220,7 +220,7 @@ alias ncmpcpprc='nvim ~/.config/ncmpcpp/config'
 alias zellijrc='nvim ~/.config/zellij/config.kdl'
 alias zathurarc='nvim ~/.config/zathura/zathurarc'
 alias rofirc='cd ~/.config/rofi'
-alias hyprrc='nvim ~/.config/hypr/hyprland.conf'
+alias hyprrc='cd ~/.config/hypr'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 alias sshconfig='nvim ~/.ssh/config'
 
