@@ -9,7 +9,7 @@ SELECTED=$(find ~/.password-store -type f -name "*.gpg" -printf "%P\n" | sed 's/
 NOTIFY_ID=$(notify-send -p "OTP 복사됨" "시간 계산 중...")
 
 CODE=$(pass otp code "$SELECTED")
-echo "$CODE" | wl-copy
+printf "%s" "$CODE" | wl-copy
 
 while true; do
     if ! makoctl list | grep -q "$NOTIFY_ID"; then break; fi
