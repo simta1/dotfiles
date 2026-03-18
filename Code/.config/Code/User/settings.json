@@ -1,7 +1,6 @@
 {
     "workbench.colorTheme": "Default Light Modern",
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
+    "telemetry.telemetryLevel": "off",
     "explorer.confirmDelete": false,
     "cph.language.cpp.Args": "-std=c++17 -O2",
     "extensions.experimental.affinity": {
@@ -25,10 +24,12 @@
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk_lualatex",
-            "command": "latexmk",
+            "command": "uv",
             "args": [
+                "run",
+                "latexmk",
                 "-pdflua",
-                "-shell-escape", // minted 지원
+                "-shell-escape",
                 "-synctex=1",
                 "-interaction=nonstopmode",
                 "-file-line-error",
@@ -44,7 +45,7 @@
         }
     ],
     "latex-workshop.latex.recipe.default": "build_teamnote",
-    "latex-workshop.latex.build.forceRecipeUsage": true,
+    "latex-workshop.latex.build.enableMagicComments": true,
 
     "path-autocomplete.triggerOutsideStrings": true,
     "path-autocomplete.pathMappings": {
