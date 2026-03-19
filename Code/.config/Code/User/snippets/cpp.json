@@ -225,7 +225,7 @@
 		"body": [
 			"[&]() {",
 			"\t$0",
-			"}()${1:;}"
+			"}()${1:}"
 		],
 		"description": "wrap with lambda"
 	},
@@ -248,6 +248,15 @@
 			"}"
 		],
 		"description": "cout vector2D"
+	},
+
+	"cout yesno": {
+		"prefix": "SNIP cout_yesno",
+		"body": [
+            "if ($0) cout << \"YES\\n\";",
+            "else cout << \"NO\\n\";"
+		],
+		"description": "cout yesno"
 	},
 
 	"for [0:n)": {

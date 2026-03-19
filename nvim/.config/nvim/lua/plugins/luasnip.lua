@@ -6,7 +6,6 @@ return {
         local ls = require("luasnip")
         local from_vscode = require("luasnip.loaders.from_vscode")
 
-        -- 기본 옵션
         ls.config.set_config({
             history = true,
             updateevents = "TextChanged,TextChangedI",
@@ -15,7 +14,6 @@ return {
             delete_check_events = "TextChanged,InsertLeave",
         })
 
-        -- 커뮤니티 + 사용자 스니펫 로드
         from_vscode.lazy_load()
         from_vscode.lazy_load({
             paths = { vim.fn.expand("~/.config/Code/User/snippets") },
@@ -36,7 +34,6 @@ return {
             desc = "Unlink current LuaSnip snippet when leaving insert/select mode",
         })
 
-        -- 이름으로 스니펫 찾아서 즉시 확장
         local function expand_by_name(name)
             local function find_and_expand(ft)
                 local snips = ls.get_snippets(ft) or {}
@@ -54,35 +51,39 @@ return {
             end
         end
 
-        -- 글로벌 키맵 등록 함수 (어디서나 발동)
         local map = function(lhs, name, desc)
             vim.keymap.set("i", lhs, function() expand_by_name(name) end,
                 { silent = true, noremap = true, desc = desc })
         end
 
-        map("<M-I>", "ps default code", "Insert snippet: ps default code")
-        map("<M-U>", "cp default code", "Insert snippet: cp default code")
-        map("<M-G>", "GCC optimize", "Insert snippet: GCC optimize")
-        map("<M-R>", "include ext/rope", "Insert snippet: include ext/rope")
-        map("<M-P>", "include ext/pb_ds", "Insert snippet: include ext/pb_ds")
-        map("<M-T>", "codeforces testcase for loop", "Insert snippet: CF testcase")
-
-        map("<M-N>", "cin n", "Insert snippet: cin n")
-        map("<M-M>", "cin nm", "Insert snippet: cin nm")
-        map("<M-K>", "cin nmk", "Insert snippet: cin nmk")
-        map("<M-J>", "cin nk", "Insert snippet: cin nk")
-        map("<M-V>", "cin v", "Insert snippet: cin v")
-
-        map("<M-@>", "cin vec2D", "Insert snippet: cin vec2D")
-
-        map("<M-O>", "sort", "Insert snippet: sort")
         map("<M-A>", "all(vector)", "Insert snippet: all(vector)")
+        -- B
+        map("<M-C>", "cin c", "Insert snippet: cin c")
+        -- D
+        map("<M-E>", "cout yesno", "Insert snippet: cout yesno")
+        -- F
+        map("<M-G>", "GCC optimize", "Insert snippet: GCC optimize")
+        -- H
+        map("<M-I>", "ps default code", "Insert snippet: ps default code")
+        map("<M-J>", "cin nk", "Insert snippet: cin nk")
+        map("<M-K>", "cin nmk", "Insert snippet: cin nmk")
+        map("<M-L>", "lambdaWrap", "Insert snippet: lambdaWrap")
+        map("<M-M>", "cin nm", "Insert snippet: cin nm")
+        map("<M-N>", "cin n", "Insert snippet: cin n")
+        map("<M-O>", "sort", "Insert snippet: sort")
+        map("<M-P>", "include ext/pb_ds", "Insert snippet: include ext/pb_ds")
+        -- Q
+        map("<M-R>", "include ext/rope", "Insert snippet: include ext/rope")
+        map("<M-S>", "cin st", "Insert snippet: cin st")
+        map("<M-T>", "codeforces testcase for loop", "Insert snippet: CF testcase")
+        map("<M-U>", "cp default code", "Insert snippet: cp default code")
+        map("<M-V>", "cin v", "Insert snippet: cin v")
+        -- W
         map("<M-X>", "cin x", "Insert snippet: cin x")
         map("<M-Y>", "cin xy", "Insert snippet: cin xy")
-        map("<M-C>", "cin c", "Insert snippet: cin c")
-        map("<M-S>", "cin st", "Insert snippet: cin st")
-        map("<M-L>", "lambdaWrap", "Insert snippet: lambdaWrap")
+        -- Z
 
+        map("<M-@>", "cin vec2D", "Insert snippet: cin vec2D")
         map("<M-<>", "for [0:n)", "Insert snippet: for [0:n)")
         map("<M-+>", "for [1:n]", "Insert snippet: for [1:n]")
 
