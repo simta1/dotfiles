@@ -1,6 +1,7 @@
 return {
     {
         "abosnjakovic/nyan.nvim",
+        pin = true,
         opts = {
             width = 20,
             animation = { enabled = true, fps = 6, },
