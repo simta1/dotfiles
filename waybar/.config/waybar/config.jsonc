@@ -64,10 +64,10 @@
 		"max-length": 10
     },
 	"custom/idle": {
-		"exec": "~/.config/waybar/scripts/idle.sh",
+		"exec": "~/.config/waybar/scripts/hypridle.sh",
 		"interval": 30,
 		"return-type": "json",
-		"on-click": "~/.local/bin/toggle-idle.sh",
+		"on-click": "~/.local/bin/toggle-hypridle.sh",
 		"signal": 8
 	},
     "tray": {
