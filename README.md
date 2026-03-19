@@ -110,6 +110,10 @@ stow -v git
 stow -v mako
 makoctl reload
 
+# swaync
+stow -v swaync
+swaync-client -R
+
 # mpd, ncmpcpp
 stow -v mpd
 stow -v ncmpcpp
