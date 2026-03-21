@@ -83,8 +83,11 @@ mkdir -p ~/.config
 # alacritty
 stow -v alacritty
 
-# bongocat (wayland)
+# bongocat (sway)
 stow -v bongocat
+
+# buku_run
+stow -v buku_run   
 
 # btop
 stow -v btop
