@@ -7,6 +7,7 @@ configuration {
     matching:             "fuzzy";
     case-sensitive:       false;
     sort:                 true;
+    drun-match-fields:    "name";
 
 	display-drun: "  Apps";
 
