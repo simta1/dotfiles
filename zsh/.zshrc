@@ -321,3 +321,9 @@ tm() {
     notify-send -u critical "timer" "time over" && \
     paplay /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga
 }
+
+# ANTLR
+export CLASSPATH=".:/usr/local/lib/antlr-complete.jar:$CLASSPATH"
+alias antlr4='java -jar /usr/local/lib/antlr-complete.jar'
+alias grun='java org.antlr.v4.gui.TestRig'
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
