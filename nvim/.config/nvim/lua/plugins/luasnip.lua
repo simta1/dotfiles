@@ -85,7 +85,9 @@ return {
 
         map("<M-@>", "cin vec2D", "Insert snippet: cin vec2D")
         map("<M-<>", "for [0:n)", "Insert snippet: for [0:n)")
+        map("<M->>", "for (n:0]", "Insert snippet: for (n:0]")
         map("<M-+>", "for [1:n]", "Insert snippet: for [1:n]")
+        map("<M-_>", "for [n:1]", "Insert snippet: for [n:1]")
 
         vim.keymap.set({ "i", "s" }, "<Space>", function()
             if ls.locally_jumpable(1) then

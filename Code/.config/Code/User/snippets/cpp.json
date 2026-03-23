@@ -277,5 +277,25 @@
 			"}"
 		],
 		"description": "for [1:n]"
+	},
+
+	"for (n:0]": {
+		"prefix": "ivhf ",
+		"body": [
+			"for (int ${1:idxName} = ${2:n} - 1; $1 >= 0; $1--) {",
+			"\t$0",
+			"}"
+		],
+		"description": "for [0:n)"
+	},
+
+	"for [n:1]": {
+		"prefix": "iv=f ",
+		"body": [
+			"for (int ${1:idxName} = ${2:n}; $1 >= 1; $1--) {",
+			"\t$0",
+			"}"
+		],
+		"description": "for [1:n]"
 	}
 }
