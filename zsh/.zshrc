@@ -292,7 +292,7 @@ cr() { # compile & run
     g++ -O2 --std=c++17 -o "$out" "$safe_src" && "./$out" "$@"
 }
 
-alias lg="lazygit"
+alias g="lazygit"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
