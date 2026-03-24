@@ -1,9 +1,20 @@
 configuration {
     font:                 "Iosevka Nerd Font 14, Roboto Mono 14";
-    show-icons:           false;
+    show-icons:           true;
+    icon-theme:           "Papirus-Dark";
+    drun-display-format:  "{name}";
+    sidebar-mode:         false;
     matching:             "fuzzy";
     case-sensitive:       false;
     sort:                 true;
+    drun-match-fields:    "name";
+
+	display-drun: "  Apps";
+
+	kb-remove-to-eol: "";
+	kb-row-down: "Down,Control+n,Control+j";
+    kb-row-up: "Up,Control+p,Control+k";
+    kb-accept-entry: "Return,KP_Enter";
 }
 
 * {
@@ -27,14 +38,14 @@ window {
     border:               1px;
     border-color:         @border;
     border-radius:        @radius;
-    padding:              16px;
-    width:                42%;
+    padding:              14px;
+    width:                32%;
 }
 
 mainbox {
     background-color:     @bg;
     border-radius:        @radius;
-    spacing:              12px;
+    spacing:              10px;
     children:             [ inputbar, listview ];
 }
 
@@ -43,7 +54,7 @@ inputbar {
     border:               1px;
     border-color:         @border;
     border-radius:        @radius;
-    padding:              10px 14px;
+    padding:              10px 12px;
     spacing:              10px;
     children:             [ prompt, entry ];
 }
@@ -52,7 +63,7 @@ prompt {
     text-color:           @accent;
     font:                 "Iosevka Nerd Font 13";
     background-color:     transparent;
-    text:                 " Clipboard";
+    text:                 "  Apps";
 }
 
 entry {
@@ -71,25 +82,25 @@ listview {
     lines:                10;
     fixed-height:         true;
     cycle:                true;
-    spacing:              12px;
-    padding:              10px;
+    spacing:              8px;
+    padding:              6px;
     scrollbar:            true;
 }
 
 scrollbar {
-    handle-width:         8px;
-    border-radius:        8px;
-    background-color:     @bg-alt;
-    handle-color:         @accent;
+    handle-width:   8px;
+    border-radius:  8px;
+    background-color: @bg-alt;
+    handle-color:     @accent;
 }
 
 element {
     background-color:     @bg;
     text-color:           @fg;
     border-radius:        12px;
-    padding:              12px 16px;
+    padding:              10px 14px;
     spacing:              16px;
-    min-height:           52px;
+    min-height:           48px;
 }
 
 element normal.normal {
@@ -116,6 +127,14 @@ element selected.urgent {
     border-color:         @urgent;
 }
 
+element-icon {
+    size:                 36px;
+    vertical-align:       0.5;
+    horizontal-align:     0.0;
+    background-color:     transparent;
+    text-color:           inherit;
+}
+
 element-text {
     text-color:           inherit;
     font:                 "Iosevka Nerd Font 14, Roboto Mono 14";
@@ -123,4 +142,16 @@ element-text {
     highlight:            bold;
     padding:              0;
     vertical-align:       0.5;
+}
+
+textbox, button, mode-switcher, case-indicator, element alternate, message {
+    background-color:     @bg;
+    text-color:           @fg-dim;
+}
+
+button selected {
+    background-color:     @sel;
+    border:               1px;
+    border-color:         @accent;
+    text-color:           @fg;
 }
