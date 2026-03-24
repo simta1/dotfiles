@@ -13,6 +13,7 @@ return {
                 augend.constant.new{ elements = {"True", "False"}, word = true, cyclic = true },
                 augend.constant.new{ elements = {"yes", "no"}, word = true, cyclic = true },
                 augend.constant.new{ elements = {"YES", "NO"}, word = true, cyclic = true },
+                augend.constant.new{ elements = {"Yes", "No"}, word = true, cyclic = true },
                 augend.constant.new{ elements = {"first", "second"}, word = true, cyclic = true },
             }
         }
