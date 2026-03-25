@@ -13,6 +13,7 @@ return {
         { "<M-r>", "<cmd>CompetiTest run<cr>", desc = "Run CompetiTest" },
         { "<M-u>", "<cmd>CompetiTest show_ui<cr>", desc = "Show CompetiTest UI" },
         { "<M-t>", "<cmd>CompetiTest receive testcases<cr>", desc = "Receive testcases" },
+        { "<M-p>", "<cmd>CompetiTest receive problem<cr>", desc = "Receive problem" },
         { "<M-a>", "<cmd>CompetiTest add_testcase<cr>", desc = "Add testcase" },
         { "<M-e>", "<cmd>CompetiTest edit_testcase<cr>", desc = "Edit testcase" },
         { "<M-d>", "<cmd>CompetiTest delete_testcase<cr>", desc = "Delete testcase" },

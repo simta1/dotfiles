@@ -64,7 +64,7 @@ return {
 		map("n", "<A-0>", "<Cmd>BufferLast<CR>", { noremap = true, silent = true })
 
 		-- Pin/unpin buffer
-		map("n", "<A-p>", "<Cmd>BufferPin<CR>", { noremap = true, silent = true })
+		-- map("n", "<A-p>", "<Cmd>BufferPin<CR>", { noremap = true, silent = true }) -- competitest에서 A-p사용중
 
 		-- Goto pinned/unpinned buffer
 		-- 	:BufferGotoPinned
