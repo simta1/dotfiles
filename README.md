@@ -1,5 +1,12 @@
 # dotfiles
 
+<p align="center">
+    <img src="./screenshots/hyprlock.png" width="49%">
+    <img src="./screenshots/swaync+rofi.png" width="49%">
+    <img src="./screenshots/desktop.png" width="49%">
+    <img src="./screenshots/nvim.png" width="49%">
+</p>
+
 ## Setup
 ```bash
 # stow 사용할거라 홈 디렉토리에 둬야 함
