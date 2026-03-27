@@ -20,13 +20,13 @@ return {
 
         vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = true })
         vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
-		vim.keymap.set("v", "<C-a>", function()
-			require("dial.map").manipulate("increment", "visual")
-			vim.cmd("normal! gv")
-		end, { noremap = true })
-		vim.keymap.set("v", "<C-x>", function()
-			require("dial.map").manipulate("decrement", "visual")
-			vim.cmd("normal! gv")
-		end, { noremap = true })
+        vim.keymap.set("v", "<C-a>", function()
+            require("dial.map").manipulate("increment", "visual")
+            vim.cmd("normal! gv")
+        end, { noremap = true })
+        vim.keymap.set("v", "<C-x>", function()
+            require("dial.map").manipulate("decrement", "visual")
+            vim.cmd("normal! gv")
+        end, { noremap = true })
     end
 }

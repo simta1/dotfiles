@@ -1,3 +1,3 @@
 return {
-	{ "folke/snacks.nvim", opts = { dashboard = { enabled = true }, }, },
+    { "folke/snacks.nvim", opts = { dashboard = { enabled = true }, }, },
 }
