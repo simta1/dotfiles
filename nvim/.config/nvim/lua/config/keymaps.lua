@@ -7,6 +7,9 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("i", "<C-a>", "<Esc>ggVG", opts)
 vim.keymap.set("v", "<C-a>", "<Esc>ggVG", opts)
 
+vim.keymap.set("i", "<M-y>", '<Esc>ggVG"+y', opts)
+vim.keymap.set("n", "<M-y>", 'ggVG"+y', opts)
+
 vim.keymap.set("i", "<C-x>", '<C-o>"+dd', opts)
 vim.keymap.set("v", "<C-x>", '"+d', opts)
 
