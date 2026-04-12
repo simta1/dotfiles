@@ -267,6 +267,24 @@ sshumount() {
     fi
 }
 
+sshmount_home() {
+    local host="$1"
+    local password_info=$(sed -n "/Host $host/,/#/p" ~/.ssh/config | sed -n '/#/p' | head -n 1 | sed 's/.*# //')
+
+    if [[ -n "$password_info" ]]; then
+        echo -e "🔑 : $password_info"
+    fi
+
+    local dir="$HOME/mnt/remote-$host"
+    mkdir -p "$dir"
+
+    if sshfs "$host:" "$dir" -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3; then
+        echo "Mounted $host at $dir"
+    else
+        echo "Failed to mount $host at $dir" >&2
+    fi
+}
+
 cr() { # compile & run
     if [[ $# -lt 1 ]]; then
         print -u2 "usage: cr <file.cpp> [program-args...]"
