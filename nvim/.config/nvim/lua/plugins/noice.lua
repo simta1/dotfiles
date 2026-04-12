@@ -7,6 +7,8 @@ return {
             filter = {
                 event = "msg_show",
                 any = {
+                    { find = "%d+ more lines" },
+                    { find = "%d+ fewer lines" },
                     { find = "%d+ lines yanked" },
                     { find = "yanked" },
                 },
