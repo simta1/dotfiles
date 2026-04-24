@@ -221,5 +221,33 @@
     '';
   };
 
+  programs.git = {
+    enable = true;
+    userName = "simta1";
+    userEmail = "koreajunho0219@gmail.com";
+
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+        dark = true;
+        side-by-side = true;
+      };
+    };
+
+    extraConfig = {
+      core = {
+        editor = "nvim";
+        quotepath = false;
+      };
+      merge = {
+        conflictStyle = "zdiff3";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+    };
+  };
+
   programs.home-manager.enable = true;
 }
