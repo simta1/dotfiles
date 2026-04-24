@@ -1,20 +1,9 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-ZSH_THEME="powerlevel10k/powerlevel10k"
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # 자동완성 시 -, _ 구분x
 HYPHEN_INSENSITIVE="true"
@@ -51,19 +40,9 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-vi-mode zsh-syntax-highlighting)
 
 # autosuggestion글씨 색깔 설정
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=110'
-
-source $ZSH/oh-my-zsh.sh
-
-# zoxide
-eval "$(zoxide init zsh)"
-alias cd='z'
-
-eval "$(thefuck --alias)"
-alias fk='fuck'
 
 # User configuration
 
@@ -91,37 +70,15 @@ alias fk='fuck'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source <(kubectl completion zsh)
-
-alias k=kubectl
-alias ka='kubectl apply --recursive -f'
-alias kgp='kubectl get pods -o wide'
-alias kgd='kubectl get deploy -o wide'
-alias kgs='kubectl get service -o wide'
-alias kgn='kubectl get nodes -o wide'
-alias kge='kubectl get events -w --field-selector type=Warning'
-alias kgv='kubectl get pvc -o wide'
-alias kgpa='kubectl get pods -o wide -A'
-alias kgpw='kubectl get pods -o wide -w'
-alias kgpaw='kubectl get pods -o wide -A -w'
-alias kcns='kubectl create deploy netshoot --image nicolaka/netshoot -- sleep inf'
-alias kcb='kubectl run busybox --image=busybox --restart=Never -- sleep 1d'
-
 # custom alias
 alias vi='nvim'
-
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # source "/home/linuxbrew/.linuxbrew/opt/kube-ps1/share/kube-ps1.sh"
 # PS1='$(kube_ps1)'$PS1
 
 export EDITOR=nvim
 
-# fzf 키 바인딩 로드
-[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
-[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
-
-bindkey -v # emacs 모드 -> vi 모드
+bindkey -v
 KEYTIMEOUT=10
 bindkey -M viins "^ " autosuggest-accept
 bindkey -M vicmd "^ " autosuggest-accept
@@ -206,7 +163,7 @@ function y() {
 }
 
 alias nvimrc='cd ~/.config/nvim'
-alias zshrc='nvim ~/.zshrc'
+alias zshrc='nvim ~/dotfiles/zsh/.zshrc'
 alias wezrc='nvim ~/.wezterm.lua'
 alias yazirc='nvim ~/.config/yazi/yazi.toml'
 alias yazikeyrc='nvim ~/.config/yazi/keymap.toml'
@@ -224,6 +181,9 @@ alias rofirc='cd ~/.config/rofi'
 alias hyprrc='cd ~/.config/hypr'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 alias sshconfig='nvim ~/.ssh/config'
+alias nrc='nvim ~/dotfiles/nixos/configuration.nix'
+alias nhrc='nvim ~/dotfiles/nixos/home.nix'
+alias nsw='sudo nixos-rebuild switch --flake ~/dotfiles#nixos'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
