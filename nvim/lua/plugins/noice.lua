@@ -10,6 +10,7 @@ return {
                     { find = "%d+ more lines" },
                     { find = "%d+ fewer lines" },
                     { find = "%d+ lines yanked" },
+                    { find = "%d+ lines indented" },
                     { find = "yanked" },
                 },
             },

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if pgrep -x hypridle > /dev/null; then
     echo '{"text":" Idle: On","class":"on"}'

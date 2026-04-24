@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 STATE=$(pactl get-source-mute @DEFAULT_SOURCE@ | awk '{print $2}')
 
