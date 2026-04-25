@@ -121,8 +121,6 @@ function zle-line-init {
 }
 zle -N zle-line-init
 
-alias pf='fzf --preview "bat --style=numbers --color=always {}"'
-
 # 전체 하위 디렉토리 포함
 previewall() {
     local file
@@ -152,7 +150,7 @@ alias la='eza -l -h -a --icons --git --color=always'
 alias lsd='eza -l -D --icons --color=always'  # 디렉토리만
 alias tree='eza --tree --level=2 --icons --color=always'
 
-alias fm='yazi'
+alias rm='trash-put'
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd

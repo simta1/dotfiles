@@ -14,17 +14,9 @@ prepend_keymap = [
 
     { on  = "M", run = "plugin mount" },
 
-    # \y → ~/clipboard로 복사
-    { on = ["\\", "y"], run = "shell --block 'mkdir -p \"$HOME/clipboard\" && cp -r -n -- $@ \"$HOME/clipboard/\"'", desc = "Copy to ~/clipboard" },
-
-    # \x → ~/clipboard로 이동
-    { on = ["\\", "x"], run = "shell --block 'mkdir -p \"$HOME/clipboard\" && mv -- $@ \"$HOME/clipboard/\"'", desc = "Move to ~/clipboard" },
-
-    # \p → ~/clipboard에서 붙여넣기
-    { on = ["\\", "p"], run = "shell --block '[ -d \"$HOME/clipboard\" ] && find \"$HOME/clipboard\" -mindepth 1 -maxdepth 1 -exec mv -t . -- {} + || true'", desc = "Paste ~/clipboard into current directory" },
-
 	# \d -> blobdrop
-	{ on = ["\\", "d"], run = "shell --orphan -- blobdrop -- \"$@\"", desc = "Drag selected via blobdrop" },
+	# { on = ["\\", "d"], run = "shell --orphan -- blobdrop -- \"$@\"", desc = "Drag selected via blobdrop" },
+	{ on = ["\\", "d"], run = "shell 'ripdrag -x -n \"$@\"' --orphan", desc = "Drag selected" },
 
     # \o → dolphin
     { on = ["\\", "o"], run = "shell --orphan -- bash -c 'nohup dolphin \"$PWD\" >/dev/null 2>&1 &'", desc = "Open current directory in Dolphin" },

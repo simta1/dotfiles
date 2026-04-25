@@ -49,9 +49,21 @@
   };
 
   fonts.packages = with pkgs; [
+    noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ 
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = "*";
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -119,17 +131,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
-    git
-    stow
-    gcc
-    gnumake
-    clang-tools
-    
-    eza
-  #  wget
-
-    wakatime-cli
-    python3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -1,5 +1,6 @@
 return {
     "ajbucci/ipynb.nvim",
+    ft = { "ipynb" },
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
         "neovim/nvim-lspconfig",

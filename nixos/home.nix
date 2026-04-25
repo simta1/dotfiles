@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "simtal";
@@ -18,6 +18,7 @@
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     QT_QPA_PLATFORM = "wayland;xcb";
+    QT_WAYLAND_SHELL_INTEGRATION = "xdg-shell";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
@@ -29,35 +30,54 @@
   #       ];
   #   };
   # };
-  home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr";
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
 
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
-    zenity
+    adwaita-icon-theme hicolor-icon-theme
+    btop
+    fastfetch
     calcure
-    kitty
-    waybar
-    hyprpaper
-    hyprshot
-    neovim
-    neovide
-    yazi
-    ffmpegthumbnailer
-    p7zip
-    jq
-    poppler
-    fd
-    ripgrep
-    fzf
-    clipse
-    wl-clipboard
-    xclip
-    mpc
-    ncmpcpp
+    alacritty ghostty kitty
+    brightnessctl
+    pavucontrol
+    hyprpaper hyprshot hyprpicker waybar zenity rofi
+    swaynotificationcenter libnotify
+    stow
+    git
+    lua-language-server
+    gcc gnumake clang-tools python3
+    wget
+    wakatime-cli
+    neovim neovide
+    yazi ffmpegthumbnailer p7zip jq poppler fd trash-cli ripgrep
+    chafa resvg exiftool
+    zip unzip 
+    fzf eza
+    clipse wl-clipboard xclip
+    mpc ncmpcpp
+    sshfs
+    wget
+
+    ripdrag
+    # (writeShellScriptBin "blobdrop" ''
+    #   export QT_QUICK_BACKEND=software
+    #   exec ${inputs.blobdrop.packages.${pkgs.system}.default}/bin/blobdrop "$@"
+    # '')
   ];
+
+  home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr";
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
+  home.file.".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/yazi";
+  home.file.".config/clipse".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/clipse";
+  home.file.".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar";
+  home.file.".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/kitty";
+  home.file.".config/swaync".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/swaync";
+  home.file.".config/rofi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/rofi";
+  home.file.".config/ncmpcpp".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ncmpcpp";
+  home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/alacritty";
+  home.file.".config/ghostty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ghostty";
 
   services.mpd = {
     enable = true;
@@ -77,6 +97,16 @@
         format "44100:16:2"
       }
     '';
+  };
+  programs.mpv = {
+    enable = true;
+    config = {
+      ao = "pipewire";
+      hwdec = "auto-safe";
+      vo = "gpu";
+      slang = "kor,en";
+      save-position-on-quit = true;
+    };
   };
 
   programs.starship = {
@@ -223,19 +253,11 @@
 
   programs.git = {
     enable = true;
-    userName = "simta1";
-    userEmail = "koreajunho0219@gmail.com";
-
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        dark = true;
-        side-by-side = true;
+    settings = {
+      user = {
+        name = "simta1";
+        email = "koreajunho0219@gmail.com";
       };
-    };
-
-    extraConfig = {
       core = {
         editor = "nvim";
         quotepath = false;
@@ -247,6 +269,25 @@
         defaultBranch = "main";
       };
     };
+  };
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      dark = true;
+      side-by-side = true;
+    };
+  };
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "TwoDark"; # 취향에 맞는 테마 설정 가능
+    };
+  };
+  programs.lazygit = {
+    enable = true;
   };
 
   programs.home-manager.enable = true;
