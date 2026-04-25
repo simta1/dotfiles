@@ -5,6 +5,10 @@
     ./hardware-configuration.nix
   ];
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+  services.blueman.enable = true;
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
@@ -19,7 +23,24 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+      enable = true;
+      # wifi.backend = "iwd"; // SKKU와이파이 연결할수가없음
+      wifi.backend = "wpa_supplicant";
+  };
+
+  # networking.wireless.iwd = {
+  #   enable = true;
+  #   settings = {
+  #     General = {
+  #       ManagementFrameProtection = "disabled";
+  #       NetworkConfigurationEnabled = true;
+  #     };
+  #     Network = {
+  #       TlsMinimumProtocolVersion = "TLSv1.0";
+  #     };
+  #   };
+  # };
 
   # Set your time zone.
   time.timeZone = "Asia/Seoul";
@@ -49,24 +70,54 @@
   };
 
   fonts.packages = with pkgs; [
+    noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ 
+        pkgs.xdg-desktop-portal-hyprland
+        pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = [ "hyprland" "gtk" ];
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+
+  services.udisks2.enable = true;
 
   # Enable the GNOME Desktop Environment.
   services.desktopManager.gnome.enable = false;
   services.displayManager.gdm.enable = false;
 
-  programs.hyprland.enable = true;
+  services.fprintd.enable = true;
+  # security.pam.services.sddm.fprintAuth = true;
+  security.pam.services.sudo.fprintAuth = true;
+  security.pam.services.hyprlock.fprintAuth = true;
+
+  programs.hyprland = {
+      enable = true;
+      withUWSM = true;
+  };
 
   programs.zsh.enable = true;
 
   services.displayManager.sddm = {
     enable = true;
+    theme = "sddm-astronaut-theme"; 
+    package = pkgs.kdePackages.sddm;
     wayland.enable = true;
+
+    extraPackages = [
+      pkgs.kdePackages.qtmultimedia
+      pkgs.kdePackages.qtsvg
+      pkgs.kdePackages.qtvirtualkeyboard
+    ];
   };
 
   # Configure keymap in X11
@@ -119,18 +170,30 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
-    git
-    stow
-    gcc
-    gnumake
-    clang-tools
-    
-    eza
-  #  wget
-
-    wakatime-cli
-    python3
+    hyprpolkitagent
+    sddm-astronaut kdePackages.qtmultimedia kdePackages.qtsvg
   ];
+
+  security.polkit.enable = true;
+
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    stdenv.cc.cc.lib
+    libgcc.lib
+    glib
+    zlib
+    fuse3
+    icu
+    nss
+    openssl
+    curl
+    expat
+  ];
+
+  environment.etc."security/faillock.conf".text = ''
+    deny=5
+  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -146,8 +209,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 53317 ];
+  networking.firewall.allowedUDPPorts = [ 53317 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 SELECTED=$(find ~/.password-store -type f -name "*.gpg" -printf "%P\n" | sed 's/\.gpg$//' | sort | rofi \
     -no-default-config \

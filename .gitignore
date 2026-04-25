@@ -3,3 +3,6 @@ mpd/.config/mpd/playlists/
 ncmpcpp/.config/ncmpcpp/error.log
 bongocat/.config/bongocat/bongocat.conf
 wallpapers
+clipse/tmp_files/
+clipse/clipboard_history.json
+clipse/clipse.log

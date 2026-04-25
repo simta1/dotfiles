@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   home.username = "simtal";
@@ -18,46 +18,96 @@
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     QT_QPA_PLATFORM = "wayland;xcb";
+    QT_WAYLAND_SHELL_INTEGRATION = "xdg-shell";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
-  # wayland.windowManager.hyprland = {
-  #   settings = {
-  #       env = [
-  #           "XCURSOR_SIZE,36"
-  #           "HYPRCURSOR_SIZE,36"
-  #       ];
-  #   };
-  # };
-  home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr";
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
+  services.udiskie = {
+    enable = true;
+    tray = "auto";
+    settings = {
+      program_options = {
+        automount = true;
+        notify = true;
+      };
+    };
+  };
+
+  programs.gpg.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+    defaultCacheTtl = 28800;
+    maxCacheTtl = 86400;
+    enableExtraSocket = true;
+  };
+
+  programs.password-store = {
+    enable = true;
+    package = pkgs.pass.withExtensions (exts: [ exts.pass-otp ]);
+  };
 
   programs.hyprlock.enable = true;
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
-    zenity
+    localsend
+    networkmanagerapplet
+    kdePackages.dolphin kdePackages.ark kdePackages.kio-extras
+    antigravity-fhs
+    adwaita-icon-theme hicolor-icon-theme
+    btop
+    fastfetch
     calcure
-    kitty
-    waybar
-    hyprpaper
-    hyprshot
-    neovim
-    neovide
-    yazi
-    ffmpegthumbnailer
-    p7zip
-    jq
-    poppler
-    fd
-    ripgrep
-    fzf
-    clipse
-    wl-clipboard
-    xclip
-    mpc
-    ncmpcpp
+    alacritty ghostty kitty
+    brightnessctl
+    pulseaudio
+    pavucontrol
+    yt-dlp
+    obsidian
+    pinentry-qt # ~/.local/bin/otp-notify.sh 에서 필요
+    vscode-fhs
+    hypridle hyprpaper hyprshot hyprpicker waybar zenity rofi
+    # wlogout
+    swaynotificationcenter libnotify
+    stow
+    git
+    lua-language-server
+    gcc gnumake clang-tools python3
+    pkgs.uv
+    wget
+    wakatime-cli
+    neovim neovide
+    yazi ffmpegthumbnailer p7zip jq poppler fd trash-cli ripgrep
+    chafa resvg exiftool
+    zip unzip 
+    fzf eza
+    clipse wl-clipboard xclip
+    mpc ncmpcpp
+    sshfs
+    wget
+
+    ripdrag
+    # (writeShellScriptBin "blobdrop" ''
+    #   export QT_QUICK_BACKEND=software
+    #   exec ${inputs.blobdrop.packages.${pkgs.system}.default}/bin/blobdrop "$@"
+    # '')
   ];
+
+  # TODO:
+  home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/alacritty";
+  home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/bin";
+  home.file.".config/clipse".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/clipse";
+  home.file.".config/Code".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/Code";
+  home.file.".config/ghostty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ghostty";
+  home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/hypr";
+  home.file.".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/kitty";
+  home.file.".config/ncmpcpp".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/ncmpcpp";
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/nvim";
+  home.file.".config/rofi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/rofi";
+  home.file.".config/swaync".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/swaync";
+  home.file.".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar";
+  home.file.".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/yazi";
 
   services.mpd = {
     enable = true;
@@ -77,6 +127,16 @@
         format "44100:16:2"
       }
     '';
+  };
+  programs.mpv = {
+    enable = true;
+    config = {
+      ao = "pipewire";
+      hwdec = "auto-safe";
+      vo = "gpu";
+      slang = "kor,en";
+      save-position-on-quit = true;
+    };
   };
 
   programs.starship = {
@@ -143,7 +203,6 @@
       kotlin.symbol = "kt ";
       kubernetes.symbol = "kubernetes ";
       lua.symbol = "lua ";
-      maven.symbol = "maven ";
       nodejs.symbol = "nodejs ";
       memory_usage.symbol = "memory ";
       meson = {
@@ -216,6 +275,7 @@
       # f = "pay-respects zsh --previous";
       cd = "z";
     };
+    # TODO:
     initContent = ''
       source ~/dotfiles/zsh/.zshrc
     '';
@@ -223,19 +283,11 @@
 
   programs.git = {
     enable = true;
-    userName = "simta1";
-    userEmail = "koreajunho0219@gmail.com";
-
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        dark = true;
-        side-by-side = true;
+    settings = {
+      user = {
+        name = "simta1";
+        email = "koreajunho0219@gmail.com";
       };
-    };
-
-    extraConfig = {
       core = {
         editor = "nvim";
         quotepath = false;
@@ -247,6 +299,42 @@
         defaultBranch = "main";
       };
     };
+  };
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      dark = true;
+      side-by-side = true;
+    };
+  };
+
+  programs.bat = {
+    enable = true;
+    config = {
+      theme = "TwoDark"; # 취향에 맞는 테마 설정 가능
+    };
+  };
+  programs.lazygit = {
+    enable = true;
+  };
+
+  systemd.user.services.battery-alert = {
+    Unit.Description = "Battery alert notification";
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${config.home.homeDirectory}/.local/bin/battery-alert.sh";
+    };
+  };
+
+  systemd.user.timers.battery-alert = {
+    Unit.Description = "Run battery alert script every minute";
+    Timer = {
+      OnBootSec = "1m";
+      OnUnitActiveSec = "1m";
+    };
+    Install.WantedBy = [ "timers.target" ];
   };
 
   programs.home-manager.enable = true;
