@@ -70,8 +70,11 @@
   };
 
   fonts.packages = with pkgs; [
+    nanum
     noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-cjk-serif
+    baekmuk-ttf
     noto-fonts-color-emoji
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
@@ -162,6 +165,8 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  programs.fuse.userAllowOther = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

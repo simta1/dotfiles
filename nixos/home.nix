@@ -20,6 +20,7 @@
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_WAYLAND_SHELL_INTEGRATION = "xdg-shell";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    SAL_USE_VCLPLUGIN = "qt6";
   };
 
   services.udiskie = {
@@ -51,6 +52,9 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    flatpak
+    rclone fuse
+    libreoffice-fresh hunspell hunspellDicts.ko_KR
     localsend
     networkmanagerapplet
     kdePackages.dolphin kdePackages.ark kdePackages.kio-extras
