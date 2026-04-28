@@ -112,6 +112,7 @@
   home.file.".config/swaync".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/swaync";
   home.file.".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar";
   home.file.".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/yazi";
+  home.file."coding/ps/.clangd".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.clangd";
 
   services.mpd = {
     enable = true;
