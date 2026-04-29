@@ -9,15 +9,14 @@ name = "*/"
 run  = "git"
 
 [opener]
-pdf = [
-	# xdg-open이 비동기라서 pdf순서대로 열기 위해 sleep
-	{ run = 'for f in "$@"; do xdg-open "$f" >/dev/null 2>&1 & sleep 0.1; done', desc = "Open PDFs sequentially", orphan = true }
+edge = [
+    { run = 'microsoft-edge-stable "$@"', desc = "Open with Edge", orphan = true  }
 ]
 
 [open]
 prepend_rules = [
-	{ name = "*.svg", use = "edit" },
+    { name = "*.svg", use = "edit" },
     { mime = "image/svg+xml", use = "edit" },
-	{ name = "*.pdf", use = "pdf" },
-    { mime = "application/pdf", use = "pdf" }
+    { name = "*.pdf", use = "edge" },
+    { mime = "application/pdf", use = "edge" }
 ]

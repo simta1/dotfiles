@@ -52,6 +52,8 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    microsoft-edge google-chrome
+    obs-studio
     flatpak
     rclone fuse
     libreoffice-fresh hunspell hunspellDicts.ko_KR
@@ -340,6 +342,13 @@
       OnUnitActiveSec = "1m";
     };
     Install.WantedBy = [ "timers.target" ];
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = [ "microsoft-edge.desktop" ];
+    };
   };
 
   programs.home-manager.enable = true;
