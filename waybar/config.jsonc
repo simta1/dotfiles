@@ -12,7 +12,7 @@
         "custom/mpd",
         "bluetooth",
         "network",
-		"custom/idle"
+        "custom/idle"
     ],
     "modules-center": [
         "clock",
@@ -24,7 +24,7 @@
         "memory",
         "backlight",
         "pulseaudio",
-		"custom/mic",
+        "custom/mic",
         "tray",
         "battery"
     ],
@@ -35,13 +35,13 @@
         "disable-scroll": false,
         "active-only": false
     },
-	"custom/mpd": {
-		"exec": "~/.config/waybar/scripts/mpd.sh",
-		"interval": 1,
-		"return-type": "json",
-		"on-click": "mpc toggle",
-		"on-click-right": "mpc stop",
-	},
+    "custom/mpd": {
+        "exec": "~/.config/waybar/scripts/mpd.sh",
+        "interval": 1,
+        "return-type": "json",
+        "on-click": "mpc toggle",
+        "on-click-right": "mpc stop",
+    },
     "bluetooth": {
         "format": " {status}",
         "format-connected": " {device_alias}",
@@ -49,10 +49,10 @@
         "format-disabled": " disabled",
         "format-off": " off",
         "format-on": " none",
-		"tooltip-format": "MAC: {device_address}\nBattery: {device_battery_percentage}%",
+        "tooltip-format": "MAC: {device_address}\nBattery: {device_battery_percentage}%",
         "on-click": "blueman-manager",
         "interval": 5,
-		"max-length": 10
+        "max-length": 10
     },
     "network": {
         "format-wifi": "  {essid} {signalStrength}%",
@@ -61,15 +61,15 @@
         "tooltip-format": "{ifname} {ipaddr}/{cidr}\n{bandwidthUpBytes}↑ {bandwidthDownBytes}↓",
         "on-click": "nm-connection-editor",
         "interval": 2,
-		"max-length": 10
+        "max-length": 10
     },
-	"custom/idle": {
-		"exec": "~/.config/waybar/scripts/hypridle.sh",
-		"interval": 30,
-		"return-type": "json",
-		"on-click": "~/.local/bin/toggle-hypridle.sh",
-		"signal": 8
-	},
+    "custom/idle": {
+        "exec": "~/.config/waybar/scripts/hypridle.sh",
+        "interval": 30,
+        "return-type": "json",
+        "on-click": "~/.local/bin/toggle-hypridle.sh",
+        "signal": 8
+    },
     "tray": {
         "show-passive-items": true,
         "spacing": 10
@@ -113,7 +113,7 @@
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": " {percent}%",
+        "format": "󰖔 {percent}%",
         "on-scroll-up": "brightnessctl set +5%",
         "on-scroll-down": "brightnessctl set 5%-",
         "interval": 2
@@ -122,18 +122,18 @@
         "format": "{icon} {volume}%",
         "format-muted": " muted",
         "format-icons": {
-          "headphone": "",
-          "default": [" ", " ", " "],
+            "headphone": "",
+            "default": [" ", " ", " "],
         },
         "on-click": "pavucontrol"
     },
-	"custom/mic": {
-		"exec": "~/.config/waybar/scripts/mic.sh",
-		"interval": 30,
-		"return-type": "json",
-		"on-click": "~/.local/bin/toggle-mic-mute.sh",
-		"signal": 8
-	},
+    "custom/mic": {
+        "exec": "~/.config/waybar/scripts/mic.sh",
+        "interval": 30,
+        "return-type": "json",
+        "on-click": "~/.local/bin/toggle-mic-mute.sh",
+        "signal": 8
+    },
   // "custom/power": {
   //   "tooltip": false,
   //   "on-click": "wlogout -p layer-shell &",
