@@ -52,9 +52,9 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    blobdrop
     microsoft-edge google-chrome
     obs-studio
-    flatpak
     rclone fuse
     libreoffice-fresh hunspell hunspellDicts.ko_KR
     localsend
@@ -92,12 +92,6 @@
     mpc ncmpcpp
     sshfs
     wget
-
-    ripdrag
-    # (writeShellScriptBin "blobdrop" ''
-    #   export QT_QUICK_BACKEND=software
-    #   exec ${inputs.blobdrop.packages.${pkgs.system}.default}/bin/blobdrop "$@"
-    # '')
   ];
 
   # TODO:

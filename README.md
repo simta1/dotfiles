@@ -11,10 +11,8 @@
 git clone https://github.com/simta1/dotfiles.git ~/dotfiles
 mkdir -p ~/.config 
 sudo nixos-rebuild switch --flake ~/dotfiles#nixos
-```
 
-
-```bash
+# hyprfoci
 git clone https://github.com/pohlrabi404/Hyprfoci
 cd Hyprfoci
 nix-shell -p \
@@ -37,6 +35,9 @@ nix-shell -p \
     wayland-protocols \
     libxkbcommon \
     libGL
-
 make all
+
+# bottles
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub com.usebottles.bottles
 ```

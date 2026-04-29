@@ -181,6 +181,7 @@ alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 alias sshconfig='nvim ~/.ssh/config'
 alias nrc='nvim ~/dotfiles/nixos/configuration.nix'
 alias nhrc='nvim ~/dotfiles/nixos/home.nix'
+alias nfrc='nvim ~/dotfiles/flake.nix'
 alias nsw='sudo nixos-rebuild switch --flake ~/dotfiles#nixos'
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
