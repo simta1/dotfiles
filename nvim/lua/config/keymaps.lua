@@ -36,6 +36,7 @@ vim.keymap.set('n', 'G', 'mgG', { desc = "Mark position and goto last line" })
 vim.keymap.set("i", "<S-Tab>", "<C-d>", { desc = "Outdent line" })
 
 vim.keymap.set("n", "<leader>v", "Vai", { remap = true, silent = true, desc = "Select entire block (linewise) with text object" })
+vim.keymap.set("n", "<leader>=", "=ip", { remap = true, silent = true, desc = "Select paragraph" })
 
 vim.keymap.del("n", "<leader><leader>")
 
