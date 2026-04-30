@@ -52,6 +52,7 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    seahorse
     tetrio-desktop
     blobdrop
     microsoft-edge google-chrome

@@ -85,6 +85,8 @@
   services.desktopManager.gnome.enable = false;
   services.displayManager.gdm.enable = false;
 
+  services.gnome.gnome-keyring.enable = true;
+
   services.fprintd.enable = true;
   security.pam.services.sddm.fprintAuth = true;
   security.pam.services.sudo.fprintAuth = true;
