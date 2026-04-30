@@ -25,22 +25,9 @@
   # Enable networking
   networking.networkmanager = {
       enable = true;
-      # wifi.backend = "iwd"; // SKKU와이파이 연결할수가없음
+      # wifi.backend = "iwd";
       wifi.backend = "wpa_supplicant";
   };
-
-  # networking.wireless.iwd = {
-  #   enable = true;
-  #   settings = {
-  #     General = {
-  #       ManagementFrameProtection = "disabled";
-  #       NetworkConfigurationEnabled = true;
-  #     };
-  #     Network = {
-  #       TlsMinimumProtocolVersion = "TLSv1.0";
-  #     };
-  #   };
-  # };
 
   # Set your time zone.
   time.timeZone = "Asia/Seoul";
@@ -99,7 +86,7 @@
   services.displayManager.gdm.enable = false;
 
   services.fprintd.enable = true;
-  # security.pam.services.sddm.fprintAuth = true;
+  security.pam.services.sddm.fprintAuth = true;
   security.pam.services.sudo.fprintAuth = true;
   security.pam.services.hyprlock.fprintAuth = true;
 
@@ -187,6 +174,7 @@
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc
     stdenv.cc.cc.lib
+    gmp
     libgcc.lib
     glib
     zlib

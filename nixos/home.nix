@@ -52,6 +52,7 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    tetrio-desktop
     blobdrop
     microsoft-edge google-chrome
     obs-studio
