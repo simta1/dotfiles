@@ -116,6 +116,9 @@
   home.file.".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/yazi";
   home.file."coding/ps/.clangd".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.clangd";
 
+  home.file.".wakatime/wakatime-cli".source = "${pkgs.wakatime-cli}/bin/wakatime-cli";
+  home.file."coding/ps/.wakatime-project".text = "ps";
+
   services.mpd = {
     enable = true;
     musicDirectory = "${config.home.homeDirectory}/Music";
