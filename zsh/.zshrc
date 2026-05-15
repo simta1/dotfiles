@@ -196,7 +196,7 @@ ssh() {
         echo -e "🔑 : $password_info"
 	fi
 
-	command ssh "$@"
+	kitty +kitten ssh "$@"
 }
 
 sshmount() {

@@ -52,6 +52,10 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    imv
+    gocryptfs
+    android-tools jmtpfs rsync
+    nyancat lolcat cowsay
     seahorse
     tetrio-desktop
     blobdrop
@@ -65,7 +69,7 @@
     antigravity-fhs
     adwaita-icon-theme hicolor-icon-theme
     btop
-    fastfetch
+    fastfetch ncdu
     calcure
     alacritty ghostty kitty
     brightnessctl
@@ -344,6 +348,14 @@
     enable = true;
     defaultApplications = {
       "application/pdf" = [ "microsoft-edge.desktop" ];
+      "text/html" = [ "firefox.desktop" ];
+      "x-scheme-handler/http" = [ "firefox.desktop" ];
+      "x-scheme-handler/https" = [ "firefox.desktop" ];
+      "x-scheme-handler/about" = [ "firefox.desktop" ];
+      "x-scheme-handler/unknown" = [ "firefox.desktop" ];
+      "image/jpeg" = [ "imv-dir.desktop" ];
+      "image/png" = [ "imv-dir.desktop" ];
+      "image/gif" = [ "imv-dir.desktop" ];
     };
   };
 
