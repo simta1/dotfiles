@@ -291,8 +291,6 @@ alias mt='mpc toggle'
 
 alias dol='nohup dolphin . >/dev/null 2>&1 &'
 
-alias code='code --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime'
-
 tm() {
     termdown "$*" && \
     notify-send -u critical "timer" "time over" && \

@@ -129,11 +129,26 @@
 
   services.flatpak.enable = true;
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "kr";
     variant = "";
-    options = "caps:escape,korean:ralt_hangul,korean:rctrl_hanja";
+    options = "korean:ralt_hangul,korean:rctrl_hanja";
+  };
+
+  services.kanata = {
+    enable = true;
+    keyboards = {
+      default = {
+        config = ''
+          (defsrc
+            caps
+          )
+          (deflayer default
+            esc
+          )
+        '';
+      };
+    };
   };
 
   # Enable CUPS to print documents.
