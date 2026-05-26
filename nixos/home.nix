@@ -52,6 +52,7 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    nodejs_22
     imv
     gocryptfs
     android-tools jmtpfs rsync
@@ -99,6 +100,14 @@
     sshfs
     wget
   ];
+
+  programs.texlive = {
+    enable = true;
+    packageSet = pkgs.texlive;
+    extraPackages = tpkgs: {
+      inherit (tpkgs) scheme-full;
+    };
+  };
 
   # TODO:
   home.file.".config/alacritty".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/alacritty";

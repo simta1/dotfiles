@@ -86,8 +86,10 @@
         pkgs.xdg-desktop-portal-hyprland
         pkgs.xdg-desktop-portal-gtk
     ];
-    config.common.default = [ "hyprland" "gtk" ];
+    config.common.default = [ "*" ];
   };
+
+  programs.dconf.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -200,7 +202,10 @@
     vim
     hyprpolkitagent
     sddm-astronaut kdePackages.qtmultimedia kdePackages.qtsvg
+    cloudflare-warp
   ];
+
+  services.cloudflare-warp.enable = true;
 
   security.polkit.enable = true;
 
