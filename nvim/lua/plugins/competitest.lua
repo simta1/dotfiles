@@ -1,5 +1,5 @@
 return {
-    "xeluxee/competitest.nvim",
+    "simta1/competitest.nvim",
     dependencies = "MunifTanjim/nui.nvim",
     keys = {
         { "<leader><leader>r", "<cmd>CompetiTest run<cr>", desc = "Run CompetiTest" },
