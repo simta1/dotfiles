@@ -11,7 +11,7 @@ return {
     config = function(_, opts)
         require("gitblame").setup(opts)
         -- vim.api.nvim_set_hl(0, "GitBlameColor", { fg = "#b5bbc7", bg = "#222436", italic = false })
-        vim.api.nvim_set_hl(0, "GitBlameColor", { bg = "#2F334D", italic = false })
+        vim.api.nvim_set_hl(0, "GitBlameColor", { bg = "#44475A", italic = false })
         vim.g.gitblame_highlight_group = "GitBlameColor"
     end,
 }

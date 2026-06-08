@@ -6,20 +6,30 @@ return {
         vim.cmd.colorscheme("dracula")
         vim.o.background = "dark"
 
-        vim.cmd([[
-            " highlight comment       guifg=#ffb86c ctermfg=215 gui=italic
-            " highlight normal        guibg=none ctermbg=none
-            " highlight normalnc      guibg=none ctermbg=none
-            " highlight normalfloat   guibg=none ctermbg=none
-            " highlight floatborder   guibg=none ctermbg=none
-            " highlight signcolumn    guibg=none ctermbg=none
-            " highlight linenr        guibg=none ctermbg=none
-            " highlight endofbuffer   guibg=none ctermbg=none
-            " highlight search        gui=underline,bold guibg=none guifg=#eeff41 cterm=underline ctermfg=190
-            " highlight incsearch     gui=underline,bold guibg=none guifg=#00ffc3 cterm=underline ctermfg=49
-            " highlight cursearch     gui=underline,bold guibg=none guifg=#00ffc3 cterm=underline ctermfg=49
-            " highlight NonText       guifg=#6c7086 guibg=NONE
-            highlight WinSeparator  guifg=#89b4fa guibg=NONE gui=bold
-            ]])
+        local set_hl = vim.api.nvim_set_hl
+        -- set_hl(0, "Search", {
+        --     underline = true,
+        --     bold = true,
+        --     bg = "NONE",
+        --     fg = "#eeff41",
+        --     ctermfg = 190
+        -- })
+        -- set_hl(0, "IncSearch", {
+        --     underline = true,
+        --     bold = true,
+        --     bg = "NONE",
+        --     fg = "#00ffc3",
+        --     ctermfg = 49
+        -- })
+        -- set_hl(0, "CurSearch", {
+        --     underline = true,
+        --     bold = true,
+        --     bg = "NONE",
+        --     fg = "#00ffc3",
+        --     ctermfg = 49
+        -- })
+        -- set_hl(0, "NonText", { fg = "#6c7086", bg = "NONE" })
+        set_hl(0, "NormalFloat", { bg = "#181424" })
+        set_hl(0, "WinSeparator", { fg = "#89b4fa", bg = "NONE", bold = true })
     end,
 }
