@@ -111,8 +111,9 @@ return {
                 cpp = {
                     exec = "g++",
                     args = {
-                        "-std=c++17",
+                        "-std=c++20",
                         "-O2",
+                        "-g", "-fsanitize=undefined",
                         "-w",
                         "-D_GLIBCXX_ASSERTIONS",
                         "$(FNAME)",

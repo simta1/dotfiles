@@ -2,4 +2,9 @@ Diagnostics:
   Suppress: [shift-op-parentheses]
 
 CompileFlags:
-  Add: [-std=c++17, -Wall, -Wextra]
+  Add: [
+    -std=c++17,
+    -Wall,
+    -Wextra,
+    -Wno-sign-compare
+  ]
