@@ -52,8 +52,11 @@ return {
         end
 
         local map = function(lhs, name, desc)
-            vim.keymap.set("i", lhs, function() expand_by_name(name) end,
-                { silent = true, noremap = true, desc = desc })
+            local keys = type(lhs) == "table" and lhs or { lhs }
+            for _, key in ipairs(keys) do
+                vim.keymap.set("i", key, function() expand_by_name(name) end,
+                    { silent = true, noremap = true, desc = desc })
+            end
         end
 
         map("<M-A>", "all(vector)", "Insert snippet: all(vector)")
@@ -83,11 +86,11 @@ return {
         map("<M-Y>", "cin xy", "Insert snippet: cin xy")
         -- Z
 
-        map("<M-@>", "cin vec2D", "Insert snippet: cin vec2D")
-        map("<M-<>", "for [0:n)", "Insert snippet: for [0:n)")
-        map("<M->>", "for (n:0]", "Insert snippet: for (n:0]")
-        map("<M-+>", "for [1:n]", "Insert snippet: for [1:n]")
-        map("<M-_>", "for [n:1]", "Insert snippet: for [n:1]")
+        map({"<M-@>", "<M-S-2>"}, "cin vec2D", "Insert snippet: cin vec2D")
+        map({"<M-<>", "<M-S-,>"}, "for [0:n)", "Insert snippet: for [0:n)")
+        map({"<M->>", "<M-S-.>"}, "for (n:0]", "Insert snippet: for (n:0]")
+        map({"<M-+>", "<M-S-=>"}, "for [1:n]", "Insert snippet: for [1:n]")
+        map({"<M-_>", "<M-S-->"}, "for [n:1]", "Insert snippet: for [n:1]")
 
         vim.keymap.set({ "i", "s" }, "<Space>", function()
             if ls.locally_jumpable(1) then
