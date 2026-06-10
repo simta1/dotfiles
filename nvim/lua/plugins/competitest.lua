@@ -116,6 +116,10 @@ return {
                         "-g", "-fsanitize=undefined",
                         "-w",
                         "-D_GLIBCXX_ASSERTIONS",
+
+                        "-I", os.getenv("HOME") .. "/.cache/cp-pch/c++20-ubsan",
+                        "-Winvalid-pch",
+
                         "$(FNAME)",
                         "-o",
                         "$(FNOEXT)"

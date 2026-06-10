@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PCH_HOME="${XDG_CACHE_HOME:-$HOME/.cache}/cp-pch"
+
+make_pch() {
+    local name="$1"
+    shift
+
+    local dir="$PCH_HOME/$name"
+
+    mkdir -p "$dir/bits"
+
+    printf '#include_next <bits/stdc++.h>\n' > "$dir/bits/stdc++.h"
+
+    rm -f "$dir/bits/stdc++.h.gch"
+
+    g++ "$@" \
+        -x c++-header "$dir/bits/stdc++.h" \
+        -o "$dir/bits/stdc++.h.gch"
+
+    echo "[OK] $dir/bits/stdc++.h.gch"
+}
+
+COMMON=(-O2 -w -D_GLIBCXX_ASSERTIONS)
+
+make_pch c++17-fast  -std=c++17 "${COMMON[@]}"
+make_pch c++17-ubsan -std=c++17 "${COMMON[@]}" -g -fsanitize=undefined
+
+make_pch c++20-fast  -std=c++20 "${COMMON[@]}"
+make_pch c++20-ubsan -std=c++20 "${COMMON[@]}" -g -fsanitize=undefined
+
+echo
+echo "PCH generated in: $PCH_HOME"
