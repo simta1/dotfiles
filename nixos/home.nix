@@ -37,7 +37,7 @@
   programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentry.package = pkgs.pinentry-curses;
     defaultCacheTtl = 28800;
     maxCacheTtl = 86400;
     enableExtraSocket = true;
@@ -52,6 +52,7 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    img2pdf
     nodejs_22
     imv
     gocryptfs
@@ -91,7 +92,7 @@
     wget
     wakatime-cli
     neovim neovide
-    yazi ffmpegthumbnailer p7zip jq poppler fd trash-cli ripgrep
+    yazi ffmpegthumbnailer p7zip jq poppler-utils fd trash-cli ripgrep
     chafa resvg exiftool
     zip unzip 
     fzf eza
