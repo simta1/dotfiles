@@ -10,7 +10,8 @@ return {
         { "<leader><leader>a", "<cmd>CompetiTest add_testcase<cr>", desc = "Add testcase" },
         { "<leader><leader>e", "<cmd>CompetiTest edit_testcase<cr>", desc = "Edit testcase" },
         { "<leader><leader>d", "<cmd>CompetiTest delete_testcase<cr>", desc = "Delete testcase" },
-        { "<M-r>", "<cmd>CompetiTest run<cr>", desc = "Run CompetiTest" },
+        { "<M-r>", "<cmd>CompetiTest run<cr>", mode = "n", desc = "Run CompetiTest" },
+        { "<M-r>", "<Esc><cmd>CompetiTest run<cr>", mode = { "i", "x" }, desc = "Run CompetiTest" },
         { "<M-u>", "<cmd>CompetiTest show_ui<cr>", desc = "Show CompetiTest UI" },
         { "<M-t>", "<cmd>CompetiTest receive testcases<cr>", desc = "Receive testcases" },
         { "<M-p>", "<cmd>CompetiTest receive problem<cr>", desc = "Receive problem" },
@@ -131,7 +132,13 @@ return {
             running_directory = ".",
             run_command = {
                 c = { exec = "./$(FNOEXT)" },
-                cpp = { exec = "./$(FNOEXT)" },
+                cpp = {
+                    exec = "bash",
+                    args = {
+                        "-c",
+                        [[exec ./$(FNOEXT) 2> >(sed -E -e 's#^.*/((bits|debug|ext)/[^:]+:[0-9]+): .*std::((__cxx11|__debug)::)?([[:alnum:]_]+)(<[^>]*>)?::(operator[^[:space:](]*)\([^)]*\).*: Assertion (.*)#\1: std::\5::\7: Assertion \8#' -e 's#^.*/((bits|debug|ext)/[^:]+:[0-9]+): .*std::((__cxx11|__debug)::)?([[:alnum:]_]+)(<[^>]*>)?::([~[:alpha:]_][[:alnum:]_~]*)\([^)]*\).*: Assertion (.*)#\1: std::\5::\7(): Assertion \8#' -e 's#^.*/((bits|debug|ext)/[^:]+:[0-9]+): .*Assertion (.*)#\1: Assertion \3#' >&2)]],
+                    },
+                },
                 rust = { exec = "./$(FNOEXT)" },
                 python = { exec = "python", args = { "$(FNAME)" } },
                 java = { exec = "java", args = { "$(FNOEXT)" } },
