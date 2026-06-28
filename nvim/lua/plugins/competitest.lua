@@ -109,22 +109,46 @@ return {
             compile_directory = ".",
             compile_command = {
                 c = { exec = "gcc", args = { "-Wall", "$(FNAME)", "-o", "$(FNOEXT)" } },
+                -- cpp = {
+                --     exec = "g++",
+                --     args = {
+                --         "-std=c++17",
+                --         "-O2",
+                --         "-g", "-fsanitize=undefined",
+                --         "-w",
+                --         "-D_GLIBCXX_ASSERTIONS",
+
+                --         "-I", os.getenv("HOME") .. "/.cache/cp-pch/c++17-ubsan",
+                --         "-Winvalid-pch",
+
+                --         "$(FNAME)",
+                --         "-o",
+                --         "$(FNOEXT)"
+                --     }
+                -- },
                 cpp = {
-                    exec = "g++",
+                    exec = "bash",
                     args = {
-                        "-std=c++20",
-                        "-O2",
-                        "-g", "-fsanitize=undefined",
-                        "-w",
-                        "-D_GLIBCXX_ASSERTIONS",
-
-                        "-I", os.getenv("HOME") .. "/.cache/cp-pch/c++20-ubsan",
-                        "-Winvalid-pch",
-
-                        "$(FNAME)",
-                        "-o",
-                        "$(FNOEXT)"
-                    }
+                        "-c",
+                        table.concat({
+                            "ccache g++",
+                            "-std=c++17",
+                            "-O2",
+                            "-g",
+                            "-fsanitize=undefined",
+                            "-w",
+                            "-D_GLIBCXX_ASSERTIONS",
+                            "-I \"" .. os.getenv("HOME") .. "/.cache/cp-pch/c++17-ubsan\"",
+                            "-fpch-preprocess",
+                            "-c \"$(FNAME)\"",
+                            "-o \"$(FNOEXT).o\"",
+                            "&&",
+                            "g++",
+                            "-fsanitize=undefined",
+                            "\"$(FNOEXT).o\"",
+                            "-o \"$(FNOEXT)\"",
+                        }, " "),
+                    },
                 },
                 rust = { exec = "rustc", args = { "$(FNAME)" } },
                 java = { exec = "javac", args = { "$(FNAME)" } },
