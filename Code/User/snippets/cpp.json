@@ -136,6 +136,22 @@
 		"description": "int n, k"
 	},
 
+	"cin adj": {
+		"prefix": "SNIP cin_adj",
+		"body": [
+			"vector<vector<int> > adj(n + 1);",
+			"for (int i = 1; i < n; i++) {",
+			"    int u, v;",
+			"    cin >> u >> v;",
+			"    adj[u].push_back(v);",
+			"    adj[v].push_back(u);",
+			"}",
+			"",
+			""
+		],
+		"description": "vector<vector<int> > adj(n + 1)"
+	},
+
 	"cin v": {
 		"prefix": "SNIP cin_v",
 		"body": [

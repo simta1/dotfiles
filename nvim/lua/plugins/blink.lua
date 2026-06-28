@@ -1,15 +1,20 @@
 return {
     "saghen/blink.cmp",
     opts = function(_, opts)
-        opts.snippets = { preset = "luasnip" }
+        opts.sources = opts.sources or {}
+
+        if vim.g.no_snippet then
+            opts.snippets = { preset = "default" }
+            opts.sources.default = { "lsp", "path", "buffer" }
+        else
+            opts.snippets = { preset = "luasnip" }
+            opts.sources.default = { "lsp", "path", "snippets", "buffer" }
+        end
 
         opts.completion = vim.tbl_deep_extend("force", opts.completion or {}, {
             ghost_text = { enabled = false },
             menu = { auto_show = false },
         })
-
-        opts.sources = opts.sources or {}
-        opts.sources.default = { "lsp", "path", "snippets", "buffer" }
 
         opts.keymap = vim.tbl_deep_extend("force", opts.keymap or {}, {
             preset = "none",

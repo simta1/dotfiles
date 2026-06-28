@@ -1,5 +1,6 @@
 return {
     "L3MON4D3/LuaSnip",
+    enabled = not vim.g.no_snippet,
     dependencies = { "rafamadriz/friendly-snippets" },
     build = "make install_jsregexp",
     config = function()
@@ -62,7 +63,7 @@ return {
         map("<M-A>", "all(vector)", "Insert snippet: all(vector)")
         -- B
         map("<M-C>", "cin c", "Insert snippet: cin c")
-        -- D
+        map("<M-D>", "cin adj", "Insert snippet: cin adj")
         map("<M-E>", "cout yesno", "Insert snippet: cout yesno")
         -- F
         map("<M-G>", "GCC optimize", "Insert snippet: GCC optimize")
