@@ -160,7 +160,11 @@ return {
                     exec = "bash",
                     args = {
                         "-c",
-                        [[exec "./$(FNOEXT)" 2> >(sed -E -e 's#^.*/((bits|debug|ext)/[^:]+:[0-9]+): .*std::((__cxx11|__debug)::)?([[:alnum:]_]+)(<[^>]*>)?::(operator[^[:space:](]*)\([^)]*\).*: Assertion (.*)#\1: std::\5::\7: Assertion \8#' -e 's#^.*/((bits|debug|ext)/[^:]+:[0-9]+): .*std::((__cxx11|__debug)::)?([[:alnum:]_]+)(<[^>]*>)?::([~[:alpha:]_][[:alnum:]_~]*)\([^)]*\).*: Assertion (.*)#\1: std::\5::\7(): Assertion \8#' -e 's#^.*/((bits|debug|ext)/[^:]+:[0-9]+): .*Assertion (.*)#\1: Assertion \3#' >&2)]],
+                        [[exec "./$(FNOEXT)" 2> >(sed -E \
+                            -e 's#^.*/(((bits|debug|ext)/)?[^/:]+:[0-9]+): .*std::((__cxx11|__debug)::)?([[:alnum:]_]+)(<[^>]*>)?::(operator[^[:space:](]*)\([^)]*\).*: Assertion (.*)#\1: std::\7::\9: Assertion \10#' \
+                            -e 's#^.*/(((bits|debug|ext)/)?[^/:]+:[0-9]+): .*std::((__cxx11|__debug)::)?([[:alnum:]_]+)(<[^>]*>)?::([~[:alpha:]_][[:alnum:]_~]*)\([^)]*\).*: Assertion (.*)#\1: std::\7::\9(): Assertion \10#' \
+                            -e 's#^.*/(((bits|debug|ext)/)?[^/:]+:[0-9]+): .*Assertion (.*)#\1: Assertion \4#' \
+                        >&2)]],
                     },
                 },
                 rust = { exec = "./$(FNOEXT)" },
