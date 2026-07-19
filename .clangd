@@ -1,10 +1,11 @@
 Diagnostics:
-  Suppress: [shift-op-parentheses]
+  Suppress:
+    - shift-op-parentheses
 
 CompileFlags:
-  Add: [
-    -std=c++17,
-    -Wall,
-    -Wextra,
-    -Wno-sign-compare
-  ]
+  Add:
+    - -std=c++17
+    - -Wall
+    - -Wextra
+    - -Wno-sign-compare
+    - -I/home/simtal/.local/include/ac-library

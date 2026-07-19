@@ -25,10 +25,10 @@ make_pch() {
 COMMON=(-O2 -w -D_GLIBCXX_ASSERTIONS)
 
 make_pch c++17-fast  -std=c++17 "${COMMON[@]}"
-make_pch c++17-ubsan -std=c++17 "${COMMON[@]}" -g -fsanitize=undefined
+make_pch c++17-ubsan -std=c++17 "${COMMON[@]}" -fsanitize=undefined
 
 make_pch c++20-fast  -std=c++20 "${COMMON[@]}"
-make_pch c++20-ubsan -std=c++20 "${COMMON[@]}" -g -fsanitize=undefined
+make_pch c++20-ubsan -std=c++20 "${COMMON[@]}" -fsanitize=undefined
 
 echo
 echo "PCH generated in: $PCH_HOME"

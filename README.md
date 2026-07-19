@@ -42,5 +42,10 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub com.usebottles.bottles
 
 # competitive programming
+mkdir -p "$HOME/.local/include"
+git clone \
+  https://github.com/atcoder/ac-library.git \
+  "$HOME/.local/include/ac-library"
+
 pch-generate
 ```
