@@ -27,11 +27,12 @@ return {
                 end,
                 "fallback",
             },
-            ["<C-n>"] = { function(cmp) cmp.select_next() end },
-            ["<C-p>"] = { function(cmp) cmp.select_prev() end },
-            ["<Down>"] = { function(cmp) cmp.select_next() end },
-            ["<Up>"]   = { function(cmp) cmp.select_prev() end },
-            ["<C-Space>"] = { function(cmp) cmp.show() end },
+            ["<C-n>"] = { "select_next" },
+            ["<C-p>"] = { "select_prev" },
+            ["<Down>"] = { "select_next", "fallback" },
+            ["<Up>"]   = { "select_prev", "fallback" },
+            ["<C-Space>"] = { "show" },
+            ["<C-@>"] = { "show" },
         })
     end,
 }
