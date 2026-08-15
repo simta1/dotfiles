@@ -123,7 +123,7 @@
     enable = true;
     theme = "sddm-astronaut-theme"; 
     package = pkgs.kdePackages.sddm;
-    wayland.enable = true;
+    wayland.enable = false;
 
     extraPackages = [
       pkgs.kdePackages.qtmultimedia
