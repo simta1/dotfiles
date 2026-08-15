@@ -1,8 +1,6 @@
 return {
     "folke/noice.nvim",
     opts = function(_, opts)
-        if not opts.routes then opts.routes = {} end
-
         table.insert(opts.routes, {
             filter = {
                 event = "msg_show",
@@ -15,6 +13,14 @@ return {
                 },
             },
             opts = { skip = true },
+        })
+
+        opts.lsp = vim.tbl_deep_extend("force", opts.lsp or {}, {
+            signature = {
+                auto_open = {
+                    enabled = false,
+                },
+            },
         })
     end,
 }
