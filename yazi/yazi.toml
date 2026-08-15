@@ -1,22 +1,22 @@
 [[plugin.prepend_fetchers]]
-id   = "git"
-name = "*"
-run  = "git"
+url   = "*"
+run   = "git"
+group = "git"
 
 [[plugin.prepend_fetchers]]
-id   = "git"
-name = "*/"
-run  = "git"
+url   = "*/"
+run   = "git"
+group = "git"
 
 [opener]
 edge = [
-    { run = 'microsoft-edge-stable "$@"', desc = "Open with Edge", orphan = true  }
+    { run = 'microsoft-edge-stable "$@"', desc = "Open with Edge", orphan = true }
 ]
 
 [open]
 prepend_rules = [
-    { name = "*.svg", use = "edit" },
+    { url = "*.svg", use = "edit" },
     { mime = "image/svg+xml", use = "edit" },
-    { name = "*.pdf", use = "edge" },
+    { url = "*.pdf", use = "edge" },
     { mime = "application/pdf", use = "edge" }
 ]
