@@ -179,6 +179,9 @@
   programs.neovim = {
     enable = true;
 
+    package =
+      inputs.nixpkgs-neovim.legacyPackages.${pkgs.system}.neovim-unwrapped;
+
     sideloadInitLua = true;
     withRuby = false;
     withPython3 = false;
