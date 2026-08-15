@@ -15,7 +15,7 @@
   home.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
     GDK_BACKEND = "wayland,x11";
-    SDL_VIDEODRIVER = "wayland";
+    SDL_VIDEODRIVER = "wayland,x11";
     CLUTTER_BACKEND = "wayland";
     QT_QPA_PLATFORM = "wayland;xcb";
     QT_WAYLAND_SHELL_INTEGRATION = "xdg-shell";
@@ -52,6 +52,13 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    termdown
+    sound-theme-freedesktop
+    (olympus.override {
+     celesteWrapper = "steam-run";
+    })
+    # tetrio-desktop
+    zoom-us
     img2pdf
     nodejs_22
     imv
@@ -59,7 +66,6 @@
     android-tools jmtpfs rsync
     nyancat lolcat cowsay
     seahorse
-    tetrio-desktop
     blobdrop
     microsoft-edge google-chrome
     obs-studio
@@ -68,7 +74,7 @@
     localsend
     networkmanagerapplet
     kdePackages.dolphin kdePackages.ark kdePackages.kio-extras
-    antigravity-fhs
+    # antigravity-fhs
     adwaita-icon-theme hicolor-icon-theme
     btop
     fastfetch ncdu
@@ -88,10 +94,11 @@
     git
     lua-language-server
     gcc gnumake clang-tools python3
+    ccache
     pkgs.uv
     wget
     wakatime-cli
-    neovim neovide
+    neovide
     yazi ffmpegthumbnailer p7zip jq poppler-utils fd trash-cli ripgrep
     chafa resvg exiftool
     zip unzip 
@@ -100,6 +107,9 @@
     mpc ncmpcpp
     sshfs
     wget
+    prismlauncher
+    iw
+    gmp
   ];
 
   programs.texlive = {
@@ -127,6 +137,11 @@
   home.file.".config/waybar".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/waybar";
   home.file.".config/yazi".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/yazi";
   home.file."coding/ps/.clangd".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/.clangd";
+
+  home.file.".config/ccache/ccache.conf".text = ''
+    sloppiness = pch_defines,time_macros
+    max_size = 5GB
+  '';
 
   home.file.".wakatime/wakatime-cli".source = "${pkgs.wakatime-cli}/bin/wakatime-cli";
   home.file."coding/ps/.wakatime-project".text = "ps";
@@ -159,6 +174,21 @@
       slang = "kor,en";
       save-position-on-quit = true;
     };
+  };
+
+  programs.neovim = {
+    enable = true;
+
+    sideloadInitLua = true;
+    withRuby = false;
+    withPython3 = false;
+
+    extraWrapperArgs = [
+      "--prefix"
+      "LD_LIBRARY_PATH"
+      ":"
+      "${pkgs.lib.makeLibraryPath [ pkgs.gmp ]}"
+    ];
   };
 
   programs.starship = {

@@ -69,6 +69,9 @@
     ];
   };
 
+  # programs.steam.enable = true;
+  # programs.gamemode.enable = true;
+
   fonts.packages = with pkgs; [
     nanum
     noto-fonts
