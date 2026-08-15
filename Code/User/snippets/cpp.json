@@ -30,8 +30,8 @@
 			"using pii = pair<int, int>;",
 			"using tii = tuple<int, int, int>;",
 			"using qii = tuple<int, int, int, int>;",
-			"const vector<pair<int, int> > dpos = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}}; // [i][j] 격자 기준 상좌하우",
-			"// const vector<pair<int, int> > dpos = {{0, 1}, {-1, 0}, {0, -1}, {1, 0}}; // xy 좌표 기준 상좌하우",
+			"const vector<pair<int, int>> dpos = {{-1, 0}, {0, -1}, {1, 0}, {0, 1}}; // [i][j] 격자 기준 상좌하우",
+			"// const vector<pair<int, int>> dpos = {{0, 1}, {-1, 0}, {0, -1}, {1, 0}}; // xy 좌표 기준 상좌하우",
 			"const string dirToChar = \"NWSE\";",
 			"const string keyToChar = \"WASD\";",
 			"",
@@ -138,7 +138,7 @@
 	"cin adj": {
 		"prefix": "SNIP cin_adj",
 		"body": [
-			"vector<vector<int> > adj(n + 1);",
+			"vector<vector<int>> adj(n + 1);",
 			"for (int i = 1; i < n; i++) {",
 			"    int u, v;",
 			"    cin >> u >> v;",
@@ -148,7 +148,7 @@
 			"",
 			""
 		],
-		"description": "vector<vector<int> > adj(n + 1)"
+		"description": "vector<vector<int>> adj(n + 1)"
 	},
 
 	"cin v": {
