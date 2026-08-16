@@ -63,10 +63,15 @@
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-hangul
-      fcitx5-gtk
-    ];
+
+    fcitx5 = {
+      waylandFrontend = true;
+
+      addons = with pkgs; [
+        fcitx5-hangul
+          fcitx5-gtk
+      ];
+    };
   };
 
   # programs.steam.enable = true;
@@ -85,11 +90,19 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ 
-        pkgs.xdg-desktop-portal-hyprland
-        pkgs.xdg-desktop-portal-gtk
+    extraPortals = [
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-termfilechooser
     ];
-    config.common.default = [ "*" ];
+
+    config.common = {
+      default = [ "hyprland" "gtk" ];
+
+      "org.freedesktop.impl.portal.FileChooser" = [
+        "termfilechooser"
+      ];
+    };
   };
 
   programs.dconf.enable = true;

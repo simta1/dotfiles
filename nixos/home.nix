@@ -146,6 +146,16 @@
   home.file.".wakatime/wakatime-cli".source = "${pkgs.wakatime-cli}/bin/wakatime-cli";
   home.file."coding/ps/.wakatime-project".text = "ps";
 
+  xdg.configFile."xdg-desktop-portal-termfilechooser/config".text = ''
+    [filechooser]
+    cmd=yazi-wrapper.sh
+    create_help_file=0
+    default_dir=$HOME
+    env=TERMCMD='kitty --class=file_chooser -o background_opacity=1.0'
+    open_mode=suggested
+    save_mode=last
+  '';
+
   services.mpd = {
     enable = true;
     musicDirectory = "${config.home.homeDirectory}/Music";
