@@ -140,9 +140,6 @@ y2m() { # youtubeToMp3
     yt-dlp -x --audio-format mp3 --no-playlist -P "$HOME/Music" "$url"
 }
 
-alias blueconnect='bluetoothctl connect 84:5F:04:89:55:82'
-alias bluedisconnect='bluetoothctl disconnect 84:5F:04:89:55:82'
-
 # exa
 alias ls='eza --color=auto --icons'
 alias ll='eza -l -h --icons --git --color=always'
@@ -277,8 +274,6 @@ export NVM_DIR="$HOME/.nvm"
 
 alias cdgitroot='cd $(git rev-parse --show-toplevel)'
 
-alias skku-vpn='/usr/local/axgate/axgate_sslvpn_cui'
-
 # mpc
 alias mc='mpc clear'
 alias mu='mpc update'
@@ -298,3 +293,5 @@ tm() {
 }
 
 alias ca="calcure"
+
+[[ -f "$HOME/.zshrc.private" ]] && source "$HOME/.zshrc.private"
