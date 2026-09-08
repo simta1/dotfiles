@@ -6,7 +6,7 @@ return {
             clangd = {
                 cmd = {
                     "/etc/profiles/per-user/simtal/bin/clangd",
-                    "--query-driver=/etc/profiles/per-user/simtal/bin/g++,/nix/store/*gcc-wrapper*/bin/g++",
+                    "--query-driver=/etc/profiles/per-user/simtal/bin/gcc,/etc/profiles/per-user/simtal/bin/g++,/nix/store/*gcc-wrapper*/bin/gcc,/nix/store/*gcc-wrapper*/bin/g++",
                     "--log=verbose",
                 },
                 single_file_support = true,

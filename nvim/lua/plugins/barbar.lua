@@ -72,6 +72,8 @@ return {
         -- Re-order to previous/next
         map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", { noremap = true, silent = true })
         map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", { noremap = true, silent = true })
+        map("n", "<A-S-,>", "<Cmd>BufferMovePrevious<CR>", { noremap = true, silent = true })
+        map("n", "<A-S-.>", "<Cmd>BufferMoveNext<CR>", { noremap = true, silent = true })
 
         -- Goto buffer in position...
         map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { noremap = true, silent = true })
