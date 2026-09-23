@@ -27,15 +27,24 @@ window#waybar {
     margin: 5px;
 }
 
-#workspaces button:hover    { background-color: #cdd6f4; color: #1e1e2e; }
-#workspaces button.active  { background-color: #89b4fa; color: #1e1e2e; }
-#workspaces button.urgent   { background-color: #1e1e2e; color: #f38ba8; }
+#workspaces button:hover {
+    background-color: @fg;
+    color: @black;
+}
+#workspaces button.active {
+    background-color: @blue;
+    color: @black;
+}
+#workspaces button.urgent {
+    background-color: @bg;
+    color: @red;
+}
 
 #workspaces button {
     padding: 5px 10px;
     margin: 6px 1px;
     background-color: @bg;
-    color: #ffffff;
+    color: @fg;
 }
 
 #custom-mpd, #bluetooth, #network, #custom-idle,
@@ -45,7 +54,7 @@ window#waybar {
     margin: 6px 2px;
     border-radius: 6px;
     background-color: @bg;
-    color: #ffffff;
+    color: @fg;
 }
 
 .modules-left   {padding-left:  7px;}
@@ -69,26 +78,34 @@ window#waybar {
 #custom-mic.yes    { color: @red; }
 #tray              { color: @purple; }
 #battery           { color: @green; }
-tooltip { border: 2px solid @blue; }
 
 tooltip {
-  background-color: #1e1e2e;
-  border: 2px solid #89b4fa;
+    background-color: @black;
+    border: 2px solid @blue;
+    border-radius: 6px;
+}
+
+#temperature {
+    color: @orange;
+}
+
+#temperature.critical {
+    color: @red;
 }
 
 #battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
+    color: @black;
+    background-color: @green;
 }
 
 #battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
+    color: @black;
+    background-color: @orange;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    color: @black;
+    background-color: @red;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -98,7 +115,7 @@ tooltip {
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @bg;
+        color: @red;
     }
 }
