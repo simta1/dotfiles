@@ -52,6 +52,8 @@
   services.hypridle.enable = true;
 
   home.packages = with pkgs; [
+    psmisc  # fuser
+    lsof
     termdown
     sound-theme-freedesktop
     (olympus.override {
@@ -94,6 +96,7 @@
     git
     lua-language-server
     gcc gnumake clang-tools python3
+    gdb
     ccache
     pkgs.uv
     wget
